@@ -1,0 +1,77 @@
+import { postLogin } from "../../API/apicall";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css'
+
+
+const Login = () => {
+  const [status, setstatus] = useState('')
+  const [loginData, setloginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const changeHandeler = (e) => {
+    setloginData({ ...loginData, [e.target.name]: e.target.value });
+  };
+
+  const navigate = useNavigate();
+
+  const login = async (e) => {
+    e.preventDefault();
+    try {
+      // Send login request to the API
+      const response = await postLogin(loginData);
+
+      // Check if login was successful
+      if (response.success) {
+        console.log(success);
+
+        // // Save tokens to local storage
+        // localStorage.setItem('accessToken', response.data.accessToken);
+        // localStorage.setItem('refreshToken', response.data.refreshToken);
+
+        // // Navigate user to the admin panel
+        // navigate('/admin-panel');
+      } else {
+                console.log(success);
+
+        // // Display error message to the user
+        // console.error('Login failed:', response.message);
+        // // You might want to display this message to the user in the UI
+      }
+    } catch (error) {
+              console.log(error);
+
+      // console.error('Error logging in:', error);
+      // // Handle error (e.g., display error message to the user)
+    }
+  };
+
+  return (
+    <div className="login">
+      <div className="login-container">
+        <h1>Login</h1>
+        <form className="login-fields">
+          <input
+            value={loginData.email}
+            name="email"
+            onChange={changeHandeler}
+            type="email"
+            placeholder="Email Address"
+          />
+          <input
+            value={loginData.password}
+            name="password"
+            onChange={changeHandeler}
+            type="password"
+            placeholder="Password"
+          />
+          <button onClick={login}>Login</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

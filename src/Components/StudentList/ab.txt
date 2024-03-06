@@ -1,0 +1,196 @@
+import React from 'react';
+import './StudentList.css';
+
+const StudentList = () => {
+ const studentList = [
+  {
+    name: "Alice Smith",
+    email: "alice.smith@example.com",
+    phoneNuber: "(555) 555-1212",
+    class: "10th Grade",
+    stream: "Science"
+  },
+  {
+    name: "Bob Johnson",
+    email: "bob.johnson@example.com",
+    phoneNuber: "(555) 555-2323",
+    class: "11th Grade",
+    stream: "Commerce"
+  },
+  {
+    name: "Charlie Miller",
+    email: "charlie.miller@example.com",
+    phoneNuber: "(555) 555-3434",
+    class: "9th Grade",
+    stream: "Arts"
+  },
+  {
+    name: "David Williams",
+    email: "david.williams@example.com",
+    phoneNuber: "(555) 555-4545",
+    class: "12th Grade",
+    stream: "Computer Science"
+  },
+  {
+    name: "Emily Brown",
+    email: "emily.brown@example.com",
+    phoneNuber: "(555) 555-5656",
+    class: "10th Grade",
+    stream: "Mathematics"
+  },
+  {
+    name: "Fiona Rodriguez",
+    email: "fiona.rodriguez@example.com",
+    phoneNuber: "(555) 555-6767",
+    class: "8th Grade",
+    stream: "Humanities"
+  },
+  {
+    name: "George Thomas",
+    email: "george.thomas@example.com",
+    phoneNuber: "(555) 555-7878",
+    class: "7th Grade",
+    stream: "Language Arts"
+  },
+  {
+    name: "Helen Yang",
+    email: "helen.yang@example.com",
+    phoneNuber: "(555) 555-8989",
+    class: "6th Grade",
+    stream: "Social Studies"
+  },
+  {
+    name: "Isaac Patel",
+    email: "isaac.patel@example.com",
+    phoneNuber: "(555) 555-9090",
+    class: "5th Grade",
+    stream: "Music"
+  },
+  {
+    name: "Jasmine Lee",
+    email: "jasmine.lee@example.com",
+    phoneNuber: "(555) 555-0101",
+    class: "4th Grade",
+    stream: "Physical Education"
+  }
+  ];
+
+
+  return (
+    <div className="studentList">
+      <h1 className="title">Student List</h1>
+      <div className="tableContainer">
+        <table className="studentTable">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Class</th>
+              <th>Stream</th>
+            </tr>
+          </thead>
+          <tbody >
+            {studentList.map((student, index) => (
+              <tr key={index}>
+                <td>{student.name}</td>
+                <td>{student.email}</td>
+                <td>{student.phoneNuber}</td>
+                <td>{student.class}</td>
+                <td>{student.stream}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default StudentList;
+
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+}
+
+.studentList {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2ecc71;
+  margin-bottom: 20px;
+}
+
+.tableContainer {
+  width: 100%;
+  /* max-width: 1200px; */
+  /* overflow-x: auto; */
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+   /* height: 80vh; */
+  height: 80vh;
+  overflow-x: auto;
+}
+
+.studentTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.studentTable-items{
+}
+
+.studentTable th,
+.studentTable td {
+  padding: 30px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.studentTable th {
+  background-color: #2ecc71;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.studentTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.studentTable tbody tr:hover {
+  background-color: #ecf0f1;
+}
+
+.tableRow {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.tableRow:hover {
+  background-color: #d4e6f1;
+}
+
+
+/* @media (min-width: 1200px) {
+  .studentList {
+    padding: 10px;
+    width: 90%;
+  }
+} */

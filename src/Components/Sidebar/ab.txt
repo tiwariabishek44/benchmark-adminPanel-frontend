@@ -1,0 +1,155 @@
+import React from 'react'
+import './Sidebar.css'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import add_product_icon from '../../assets/Product_Cart.svg'
+import list_product_icon from "../../assets/Product_list_icon.svg"
+import logo from "../../assets/logo.svg"
+import shop from '../../assets/svg-logo/shop.svg'
+import product from '../../assets/svg-logo/product.svg'
+import users from '../../assets/svg-logo/users.svg'
+
+
+
+
+const Sidebar = () => {
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
+    const currentPathName = pathname.substring(13);
+    console.log(currentPathName)
+    return (
+        
+        <div className="sidebar">
+            <div className="logo">
+                <img src={logo} alt="" />
+            </div>
+
+            <Link to={'./'} style={{ textDecoration: "none" }} >
+                <button className="sidbar-item"
+                style={currentPathName===''?{color:"black",backgroundColor:'antiquewhite',}:{}}
+                >
+                    <img src={add_product_icon} alt=""  />
+                    <p>Dashbord</p>
+                </button>
+            </Link>
+
+            <Link to={'./addproduct'} style={{ textDecoration: "none" }} >
+                <button className="sidbar-item"
+                style={currentPathName==='addproduct'?{color:"black",backgroundColor:'antiquewhite'}:{}}
+                >
+                    <img src={add_product_icon} alt=""  />
+                    <p>Add Product</p>
+                </button>
+            </Link>
+
+            <Link to={'./listproduct'} style={{ textDecoration: "none" }} >
+                <button className="sidbar-item"
+                style={currentPathName==='listproduct'?{color:"black",backgroundColor:'antiquewhite'}:{}}
+                >
+                    <img src={product} alt="" style={{fill:'red'}} />
+                    <p>Courses</p>
+                </button>
+            </Link>
+       
+
+            <Link to={'./studentList'} style={{ textDecoration: "none" }} >
+                <button className="sidbar-item"
+                style={currentPathName==='studentList'?{color:"black",backgroundColor:'antiquewhite'}:{}}
+                >
+                    <img src={users} alt="" />
+                    <p>Students</p>
+                </button>
+            </Link>
+
+            <Link to={'./teacherList'} style={{ textDecoration: "none" }} >
+                <button className="sidbar-item"
+                style={currentPathName==='teacherList'?{color:"black",backgroundColor:'antiquewhite'}:{}}
+                >
+                    <img src={users} alt="" />
+                    <p>Teachers </p>
+                </button>
+            </Link>
+
+            <Link to={'./teacherVerification'} style={{ textDecoration: "none" }} >
+                <button className="sidbar-item"
+                style={currentPathName==='teacherVerification'?{color:"black",backgroundColor:'antiquewhite'}:{}}
+                >
+                    <img src={shop} alt="" />
+                    <p>Teacher verify </p>
+                </button>
+            </Link>
+
+            <Link to={'./teacherVerification'} style={{ textDecoration: "none" }} >
+                <button className="sidbar-item"
+                style={currentPathName===''?{color:"black",backgroundColor:'antiquewhite'}:{}}
+                // onClick={navigate('/')}
+                >
+                    <img src={shop} alt="" style={{fill:'red'}} />
+                    <p>LogOut </p>
+                </button>
+            </Link>
+            {currentPathName}
+        </div>
+    )
+}
+
+export default Sidebar
+
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    gap: 20px;
+    width: 100%;
+    max-width: 280px;
+    height: max-content;
+    background-color: rgb(255, 255, 255);
+    margin-top: 12px;
+    
+}
+
+
+
+.sidbar-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 220px;
+    margin: 0px 20px;
+    /* padding: 5px 10px; */
+    border-radius: 6px;
+    gap: 15px;
+    font-weight: 800;
+    font-size: large;
+    color: #999989;
+    cursor: pointer;
+    border: none;
+    color: rgb(210, 131, 21);
+    background-color: rgb(250, 245, 245);
+}
+.sidbar-item:hover{
+    transform: scale(0.95);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.sidbar-item:active{
+    transform: scale(1.041);
+
+}
+.sidbar-item img{
+    fill: aqua;
+}
+.logo{
+    display: flex;
+    /* margin-top: -70px; */
+    width: 100%;
+    align-items: center;
+    /* background-color: green; */
+    height: 100px;
+    margin-left: 20px;
+}
+.logo img{
+    width: 70%;
+
+}
+

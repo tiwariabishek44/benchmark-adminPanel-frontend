@@ -1,0 +1,67 @@
+/* Sidebar.css */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  background-color: #ffffff; /* White background */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.sidbar-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+    width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #000000; /* Black text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+  background-color: transparent; /* Transparent background */
+}
+
+.sidbar-item:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Semi-transparent background on hover */
+  transform: translateY(-2px);
+ 
+}
+
+.sidbar-item img {
+  margin-right: 12px;
+  filter: invert(1);
+}
+
+.sidbar-item .badge {
+  background-color: #007bff; /* Blue badge background */
+  color: #ffffff; /* White text color */
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+  height: 1px;
+  margin-top: 50px;
+}
+
+.logo img {
+  width: 80%;
+}
+
+/* Active button style */
+.sidbar-item.active {
+  background-color: rgba(0, 0, 0, 0.05); /* Semi-transparent background for active button */
+}

@@ -1,0 +1,65 @@
+.mcqlist {
+  margin-top: 20px;
+  background-color: white;
+}
+
+.mcqlist hr {
+  height: 1px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.mcqlist-format-main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.mcqlist-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mcqlist-format {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.mcqlist-format:hover {
+  background-color: #e8e8e8;
+
+}
+
+.mcqlist-format p {
+  margin: 0;
+  padding: 10px;
+}
+
+.mcqlist-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.mcqlist-remove-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mcqlist-remove-icon:hover {
+  transform: scale(1.15);
+}
+.mcqlist-remove-icon:active {
+  transform: scale(0.898);
+}

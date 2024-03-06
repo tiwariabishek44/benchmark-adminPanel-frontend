@@ -1,0 +1,109 @@
+
+.add-mcq {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  /* max-width: 800px; */
+  padding: 30px 50px;
+  margin: 20px auto;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  
+}
+
+.addmcq-itemfield {
+  width: 50%;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.addmcq-itemfield input,
+.add-mcq-selector {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  padding: 0 15px;
+  border: 1px solid #cccccc;
+  outline: none;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.addmcq-price {
+  display: flex;
+  gap: 20px;
+}
+
+.addmcq-thumnail-img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  margin: 10px 0;
+}
+
+.add-mcq button {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 15px;
+  height: 60px;
+  background-color: #4caf50;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.add-mcq button:hover {
+  transform: scale(1.05);
+  background-color: #388e3c;
+}
+
+.add-mcq button:active {
+  transform: scale(0.98);
+}
+
+/* Style for dropdown options */
+.add-mcq select option {
+  background-color: #ffffff;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style for dropdown options on hover */
+.add-mcq select option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Style for dropdown when opened */
+.add-mcq select:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color when focused */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add box shadow when focused */
+}
+
+@media (max-width:1300px) {
+  .addmcq-itemfield {
+  width: 100%;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 700;
+  
+}
+}

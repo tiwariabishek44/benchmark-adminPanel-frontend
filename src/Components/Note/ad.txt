@@ -1,0 +1,312 @@
+import React, { useState } from "react";
+import axios from "axios";
+import "./AddNote.css";
+
+import upload_area from "../../assets/upload_area.svg";
+import pdfLogo from "../../assets/pdf.png";
+
+const AddProduct = () => {
+  const [pdf, setPdf] = useState(null);
+  const [productType, setProductType] = useState("course");
+
+  const productDetail = {
+    name: "",
+    pdf: "",
+    stream: "science",
+    class: "11",
+    subject: "physics",
+    price: "",
+    note_type: "Demo",
+  };
+
+  const [productDetails, setProductDetails] = useState(productDetail);
+
+  const pdfHandler = (e) => {
+    setPdf(e.target.files[0]);
+  };
+
+  const changeHandler = (e) => {
+    setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
+  };
+
+  const handleProductTypeChange = (e) => {
+    setProductType(e.target.value);
+    if (e.target.value === "note") {
+      // Reset price when switching to note
+      setProductDetails((prevDetails) => ({
+        ...prevDetails,
+        price: "", // Reset price when switching to note
+      }));
+    }
+  };
+
+  return (
+    <div className="add-product">
+      {/* Filter for selecting product type */}
+      <div className="addproduct-itemfield">
+        <p>Select Product Type</p>
+        <select
+          value={productType}
+          onChange={handleProductTypeChange}
+          className="add-product-selector"
+        >
+          <option value="course">Course</option>
+          <option value="note">Note</option>
+        </select>
+      </div>
+
+   
+
+      {/* Stream */}
+      <div className="addproduct-itemfield">
+        <p>Stream</p>
+        <select
+          value={productDetails.stream}
+          onChange={changeHandler}
+          name="stream"
+          className="add-product-selector"
+        >
+          <option value="science">Science</option>
+          <option value="management">Management</option>
+        </select>
+      </div>
+
+      {/* Class */}
+      <div className="addproduct-itemfield">
+        <p>Class</p>
+        <select
+          value={productDetails.class}
+          onChange={changeHandler}
+          name="class"
+          className="add-product-selector"
+        >
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+
+      {/* Subject */}
+      <div className="addproduct-itemfield">
+        <p>Subjects</p>
+        <select
+          value={productDetails.subject}
+          onChange={changeHandler}
+          name="subject"
+          className="add-product-selector"
+        >
+          <option value="physics">Physics</option>
+          <option value="chemistry">Chemistry</option>
+          <option value="computer">Computer</option>
+          <option value="biology">Bio</option>
+          <option value="math">Math</option>
+          <option value="nepali">Nepali</option>
+        </select>
+      </div>
+
+      {/* PDF of product (Only shown for Note) */}
+      {productType === "note" && (
+        <div className="addproduct-itemfield">
+             {/* Name of product */}
+      <div className="addproduct-itemfield">
+        <p>Note name</p>
+        <input
+          value={productDetails.name}
+          type="text"
+          onChange={changeHandler}
+          name="name"
+          placeholder="Product name"
+          required
+        />
+      </div>
+          <label htmlFor="file-input">
+            <img
+              src={pdf ? pdfLogo : upload_area}
+              alt=""
+              style={{ width: "250px", marginTop: "20px" }}
+              className="addproduct-thumnail-img"
+            />
+          </label>
+          <input
+            onChange={pdfHandler}
+            type="file"
+            name="pdf"
+            id="file-input"
+            accept="application/pdf"
+            hidden
+          />
+        </div>
+      )}
+      {pdf ? <div>{pdf.name}</div> : <></>}
+
+      {/* Price of product (Only shown for Course) */}
+      {productType === "course" && (
+        <div className="addproduct-itemfield">
+          <p>Price</p>
+          <input
+            value={productDetails.price}
+            onChange={changeHandler}
+            type="Number"
+            name="price"
+            placeholder="Price"
+            required
+          />
+        </div>
+      )}
+
+      {/* Add button */}
+      <button>Add</button>
+    </div>
+  );
+};
+
+export default AddProduct;
+
+
+.add-product {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  /* max-width: 800px; */
+  padding: 30px 50px;
+  margin: 20px auto;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  
+}
+
+.addproduct-itemfield {
+  width: 50%;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.addproduct-itemfield input,
+.add-product-selector {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  padding: 0 15px;
+  border: 1px solid #cccccc;
+  outline: none;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.addproduct-price {
+  display: flex;
+  gap: 20px;
+}
+
+.addproduct-thumnail-img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  margin: 10px 0;
+}
+
+.add-product button {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 15px;
+  height: 60px;
+  background-color: #4caf50;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.add-product button:hover {
+  transform: scale(1.05);
+  background-color: #388e3c;
+}
+
+.add-product button:active {
+  transform: scale(0.98);
+}
+
+/* Style for dropdown options */
+.add-product select option {
+  background-color: #ffffff;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style for dropdown options on hover */
+.add-product select option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Style for dropdown when opened */
+.add-product select:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color when focused */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add box shadow when focused */
+}
+
+@media (max-width:1300px) {
+  .addproduct-itemfield {
+  width: 100%;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 700;
+  
+}
+}
+
+
+
+
+  // useEffect(() => {
+  //   handleFetchProducts();
+  // }, []);
+
+  // const handleFetchProducts = async () => {
+  //   try {
+  //     // Define the API endpoint (replace with your actual endpoint)
+  //     const apiUrl = "http://localhost:4000/allnotes";
+
+  //     // Fetch products from the backend
+  //     const response = await axios.get(apiUrl);
+
+  //     // Log the fetched products to the console
+  //     // console.log("Fetched Products:", response.data);
+  //     setallnote(response.data);
+  //     // console.log(allnote);
+  //   } catch (error) {
+  //     console.error("Error fetching products:", error);
+  //   }
+  // };
+
+  // const handleRemoveProduct = async (id) => {
+  //   // console.log("hi every")
+  //   await fetch('http://localhost:4000/removeproduct', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       "Content-Type":"application/json"
+  //     },
+  //     body:JSON.stringify({id:id}),
+  //   })
+  //   await handleFetchProducts();
+  //   let value = val;
+  //   value++;
+  //   setval(value)
+  // };
