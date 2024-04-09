@@ -1,9 +1,10 @@
 
-.add-mcq {
+.add-note {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
+  height: 80vh;
   /* max-width: 800px; */
   padding: 30px 50px;
   margin: 20px auto;
@@ -11,6 +12,8 @@
   background-color: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
+  /* overflow-y: scroll; */
+  /* background-color: #007bff;. */
   
 }
 
@@ -22,7 +25,7 @@
 }
 
 .addmcq-itemfield input,
-.add-mcq-selector {
+.add-note-selector {
   width: 100%;
   height: 50px;
   border-radius: 4px;
@@ -42,14 +45,14 @@
 }
 
 .addmcq-thumnail-img {
-  max-width: 120px;
+  max-width: 80px;
   height: auto;
   border-radius: 10px;
   object-fit: contain;
   margin: 10px 0;
 }
 
-.add-mcq button {
+.add-note button {
   width: 100%;
   max-width: 200px;
   margin-top: 15px;
@@ -65,17 +68,17 @@
   transition: all 0.3s ease;
 }
 
-.add-mcq button:hover {
+.add-note button:hover {
   transform: scale(1.05);
   background-color: #388e3c;
 }
 
-.add-mcq button:active {
+.add-note button:active {
   transform: scale(0.98);
 }
 
 /* Style for dropdown options */
-.add-mcq select option {
+.add-note select option {
   background-color: #ffffff;
   color: #333333;
   font-family: 'Poppins', sans-serif;
@@ -87,23 +90,14 @@
 }
 
 /* Style for dropdown options on hover */
-.add-mcq select option:hover {
+.add-note select option:hover {
   background-color: #f0f0f0;
 }
 
 /* Style for dropdown when opened */
-.add-mcq select:focus {
+.add-note select:focus {
   outline: none;
   border-color: #007bff; /* Change border color when focused */
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add box shadow when focused */
 }
 
-@media (max-width:1300px) {
-  .addmcq-itemfield {
-  width: 100%;
-  color: #333333;
-  font-size: 20px;
-  font-weight: 700;
-  
-}
-}

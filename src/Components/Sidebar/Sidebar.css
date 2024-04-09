@@ -7,10 +7,10 @@
   width: 100%;
   max-width: 280px;
   min-width: 280px;
-  height: 100vh;
   background-color: #ffffff; /* White background */
   border-radius: 15px;
   padding: 20px;
+  padding-bottom: 100px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
@@ -64,4 +64,30 @@
 /* Active button style */
 .sidbar-item.active {
   background-color: rgba(0, 0, 0, 0.05); /* Semi-transparent background for active button */
+}
+
+
+.logout-button{ 
+  /* width: max-content; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  
+}
+.logout-button button{
+  padding: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  border-width: 0px;
+  border-radius: 10px;
+  background-color: orange;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+.logout-button button:hover{
+  transform: translateY(3px) scale(1.04);
+
 }

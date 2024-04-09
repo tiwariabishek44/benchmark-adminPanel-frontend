@@ -12,7 +12,7 @@ const Mcq = () => {
 
   return (
     <div className='mcq'  >
-      <div className="options">
+      <div className="optons">
                 <button onClick={()=>handler("list")} style={{ backgroundColor: option === "list" ? "orange" : "#E5E8E8" }} > MCQ List</button>
 
         <button onClick={()=>handler("add")}  style={{ backgroundColor: option === "add" ? "orange" : "#E5E8E8" }}>Add MCQ</button>

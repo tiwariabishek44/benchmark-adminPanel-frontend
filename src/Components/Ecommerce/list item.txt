@@ -1,0 +1,145 @@
+// EcommerceList.jsx
+
+import React from "react";
+import './EcommerceList.css';
+import { BookRepository } from "../../Respsitory/bookRespsitory";
+import { Popconfirm } from "antd";
+
+const VITE_REACT_APP_BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
+
+const EcommerceList = () => {
+
+  const bookRespository = new BookRepository();
+  const [publication, setPublication] = React.useState([]);
+
+  React.useEffect(()=>{
+    bookRespository.getAllPublication().then(publicationBooks => {
+      if(publicationBooks && publicationBooks?.data){
+        setPublication(publicationBooks?.data)
+      }
+    });
+  },[])
+  
+  const handleRemovePublication = (publicationId) => {
+    bookRespository.deletePublication(publicationId).then(result=>{
+      if(result && result.success){
+        bookRespository.getAllPublication().then(response=>{
+          if(response && response?.data){
+            setPublication([...response?.data]);
+          }
+        })
+      }
+    })
+  };
+
+  return (
+    <div className="ecommerce">
+      <div className="ecommerce-format-main">
+        <p>S.N</p>
+        <p>Name</p>
+        <p>Description</p>
+        <p>Price</p>
+        <p>Remove</p>
+      </div>
+      <hr />
+      <div className="ecommerce-list">
+        {publication?.map((publication, index) => (
+          <div key={publication.id} className="ecommerce-format">
+            <img src={VITE_REACT_APP_BASE_URL+publication.fileLocation} alt="PDF Icon" className="ecommerce-icon" />
+            <p>{publication.name}</p>
+            <p>{publication.description}</p>
+            <p>{publication.price}</p>
+            <Popconfirm
+              title="Delete the publication"
+              description="Are you sure to delete this item?"
+              onConfirm={() => handleRemovePublication(publication.id)}
+              okText="Yes"
+              cancelText="No"
+            >
+              <button className="removeButton">Remove</button>
+            </Popconfirm>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default EcommerceList;
+
+
+
+
+
+.ecommerce {
+  margin-top: 20px;
+  background-color: white;
+}
+
+.ecommerce hr {
+  height: 1px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.ecommerce-format-main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.ecommerce-list {
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.ecommerce-format {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.ecommerce-format:hover {
+  background-color: #e8e8e8;
+
+}
+
+.ecommerce-format p {
+  margin: 0;
+  padding: 10px;
+}
+
+.ecommerce-icon {
+  width: 100px;
+  height: 100px;
+}
+.removeButton {
+  /* padding: 15px 2px; */
+  width: 110px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e74c3c; /* Red color */
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.removeButton:hover {
+  transform: scale(1.01699);
+}
+
+.removeButton:active {
+  transform: scale(0.899);
+}

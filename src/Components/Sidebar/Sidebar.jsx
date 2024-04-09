@@ -8,6 +8,7 @@ import shop from '../../assets/svg-logo/shop.svg'
 import product from '../../assets/svg-logo/product.svg'
 import users from '../../assets/svg-logo/users.svg'
 import Course from './../Course/Course';
+import { clearTokens } from '../../utils/tokenUtils';
 
 
 
@@ -16,7 +17,12 @@ const Sidebar = () => {
     const navigate = useNavigate();
     const { pathname } = useLocation();
     const currentPathName = pathname.substring(13);
-    console.log(currentPathName)
+    // console.log(currentPathName)
+
+    const logOut = () =>{
+        clearTokens();
+        navigate("/")
+    }
     return (
         
         <div className="sidebar">
@@ -24,18 +30,6 @@ const Sidebar = () => {
                 <img src={logo} alt="" />
             </div>
 
-            <Link to={'./dashboard'} style={{ textDecoration: "none" }} >
-                <button className="sidbar-item"
-                style={currentPathName==='dashboard'?{color:"black",backgroundColor:'antiquewhite',}:{}}
-                >
-                    <img src={product} alt=""  />
-                    <p>Dashboard</p>
-                </button>
-            </Link>
-
-     
-
-        
 
             <Link to={'./course'} style={{ textDecoration: "none" }} >
                 <button className="sidbar-item"
@@ -46,28 +40,24 @@ const Sidebar = () => {
                 </button>
             </Link>
 
-            
-              <Link to={'./note'} style={{ textDecoration: "none" }} >
+
+            <Link to={'./mcq'} style={{ textDecoration: "none" }} >
+            <button className="sidbar-item"
+            style={currentPathName==='mcq'?{color:"black",backgroundColor:'antiquewhite'}:{}}
+            >
+                <img src={add_product_icon} alt=""  />
+                <p>MCQ</p>
+            </button>
+        </Link>
+
+            <Link to={'./ecommerce'} style={{ textDecoration: "none" }} >
                 <button className="sidbar-item"
-                style={currentPathName==='note'?{color:"black",backgroundColor:'antiquewhite'}:{}}
+                style={currentPathName==='ecommerce'?{color:"black",backgroundColor:'antiquewhite'}:{}}
                 >
                     <img src={add_product_icon} alt=""  />
-                    <p>Note</p>
+                    <p>Ecommerce</p>
                 </button>
             </Link>
-
-            
-                <Link to={'./mcq'} style={{ textDecoration: "none" }} >
-                <button className="sidbar-item"
-                style={currentPathName==='mcq'?{color:"black",backgroundColor:'antiquewhite'}:{}}
-                >
-                    <img src={add_product_icon} alt=""  />
-                    <p>MCQ</p>
-                </button>
-            </Link>
-
-
-    
 
             <Link to={'./teacherList'} style={{ textDecoration: "none" }} >
                 <button className="sidbar-item"
@@ -89,16 +79,14 @@ const Sidebar = () => {
             </Link>
 
 
-            <Link to={'./'} style={{ textDecoration: "none" }} >
-                <button className="sidbar-item" 
-                style={currentPathName===''?{color:"black",backgroundColor:'antiquewhite'}:{}}
-                // onClick={navigate('/')}
-                >
-                    <img src={shop} alt="" style={{fill:'red'}} />
-                    <p>LogOut </p>
-                </button>
-            </Link>
-            {currentPathName}
+            <Link to={'/'} style={{ textDecoration: "none" }}>
+                <div className="logout-button" >
+
+        <button onClick={logOut}>
+          Logout
+        </button>
+                </div>
+      </Link>
         </div>
     )
 }

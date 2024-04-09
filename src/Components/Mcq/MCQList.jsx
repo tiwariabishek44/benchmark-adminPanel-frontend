@@ -1,126 +1,92 @@
 import React from "react";
-import "./MCQlist.css";
-import remove_icon from "../../assets/remove_icon.png";
-import pdf_icon from "../../assets/pdf.png";
+import './MCQLts.css';
+import { BookRepository } from "../../Respsitory/bookRespsitory";
+import { Popconfirm } from "antd";
+import { consoleLog } from "../../utils/helpers";
+
+const VITE_REACT_APP_BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
 
 const MCQlist = () => {
-  const allnotes = [
-    {
-      name: "hi my name is abinash tiwari ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    {
-      name: "asdf ",
-      stream: "scasdfience",
-      class: "11",
-      subject: "asdf",
-    },
-    {
-      name: "kailash ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    {
-      name: "hi my name is abinash tiwari ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    {
-      name: "asdf ",
-      stream: "scasdfience",
-      class: "11",
-      subject: "asdf",
-    },
-    {
+
+  const mcqRespository = new BookRepository();
+ 
+  const [mcq, setMcq] = React.useState([]);
+
+  React.useEffect(()=>{
+    const fetchMCQs = async () => {
+      try {
+        const mcqBooks = await mcqRespository.getAllMcq();
+        if (mcqBooks && mcqBooks.data) {
+          setMcq(mcqBooks.data);
+        }
+      } catch (error) {
+        consoleLog("Error fetching MCQs:", error);
+      }
+    };
     
-      name: "kailash ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    {
-      name: "hi my name is abinash tiwari ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    {
-      name: "asdf ",
-      stream: "scasdfience",
-      class: "11",
-      subject: "asdf",
-    },
-    {
-      name: "kailash ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    {
-      name: "asdf ",
-      stream: "scasdfience",
-      class: "11",
-      subject: "asdf",
-    },
-    {
-      name: "kailash ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    {
-      name: "asdf ",
-      stream: "scasdfience",
-      class: "11",
-      subject: "asdf",
-    },
-    {
-      name: "kailash ",
-      stream: "science",
-      class: "11s",
-      subject: "asdf",
-    },
-    // Other static notes...
-  ];
+    fetchMCQs();
+  }, [])
+  
 
   const handleRemoveNote = (noteId) => {
-    // Implement logic to remove note from the list
-    // Update allnote state after removing the note
-    console.log("Removing note with ID:", noteId);
+    mcqRespository.deleteBook(noteId).then(result=>{
+      if(result && result.success){
+        mcqRespository.getAllMcq().then(response=>{
+          if(response && response?.data){
+            setMcq([...response?.data]);
+          }
+        })
+      }
+    });
   };
 
   return (
     <div className="mcqlist">
-      <div className="mcqlist-format-main">
-        <p>S.N</p>
-        <p>Name</p>
-        <p>Stream</p>
-        <p>Class</p>
-        <p>Subject</p>
-        <p>Remove</p>
-      </div>
-      <hr />
-      <div className="mcqlist-list">
-        {allnotes.map((note, index) => (
-          <div key={index} className="mcqlist-format">
-            <img src={pdf_icon} alt="PDF Icon" className="mcqlist-icon" />
-            <p>{note.name}</p>
-            <p>{note.stream}</p>
-            <p>{note.class}</p>
-            <p>{note.subject}</p>
-            <img
-              src={remove_icon}
-              alt="Remove Icon"
-              className="mcqlist-remove-icon"
-              onClick={() => handleRemoveNote(index)} // Pass index as noteId for simplicity
-            />
-          </div>
-        ))}
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>S.N</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>View</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mcq.map((note, index) => (
+            <tr key={note.fileLocation}>
+              <td>{index + 1}</td>
+              <td>{note.name}</td>
+              <td>{note.description}</td>
+              <td>
+              <button className="button-container">
+      <a
+        href={VITE_REACT_APP_BASE_URL + note.fileLocation}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{textDecoration:'none',color:'white'}}
+        className="button-link" // Apply the button-link class to the <a> element
+      >
+        Open 
+      </a>
+    </button>
+              {/* <a href={VITE_REACT_APP_BASE_URL + note.fileLocation} target="_blank" rel="noopener noreferrer" className="open-file-link">Open File</a> */}
+              </td>
+              <td>
+                <Popconfirm
+                  title="Delete the MCQ"
+                  description="Are you sure to delete this MCQ?"
+                  onConfirm={() => handleRemoveNote(note.id)}
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <button className="rmv-button">Remove</button>
+                </Popconfirm>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 .notelist {
-  padding: 10px 40px;
-  width: 700px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+  padding: 5px 40px;
+  width: 80%;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15); */
+  margin-top: 10px;
+
   height: 500px;
 }
 
@@ -14,7 +15,8 @@
 
 .notelist-format-main {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  gap:10px;
   align-items: center;
   color: #333;
   font-size: 17px;
@@ -32,7 +34,8 @@
 
 .notelist-format {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  gap:10px;
   align-items: center;
   padding: 8px 0;
   transition: background-color 0.3s ease;
@@ -44,7 +47,7 @@
 
 .notelist-format p {
   margin: 0;
-  padding: 10px;
+
 }
 
 .notelist-icon {
@@ -65,4 +68,26 @@
 
 .notelist-remove-icon:active {
   transform: scale(0.99);
+}
+
+
+.add-course-note{
+  height: 40px;
+  width:100px;
+  margin-top: 40px;
+  border: 1px solid white;
+  border-radius: 7px;
+  background-color: #f97316;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-course-note:hover{
+  border-color: #f97316;
+  color:#f97316;
+  background-color: white;
 }

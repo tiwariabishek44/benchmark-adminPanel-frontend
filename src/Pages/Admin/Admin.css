@@ -1,4 +1,5 @@
 .admin{
     display: flex; gap: 10px;
-    overflow-y: hidden;
+height: auto;
+padding: 4px 2px;
 }

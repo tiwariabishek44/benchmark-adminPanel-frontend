@@ -1,15 +1,17 @@
 // api/api.js
 
 import axios from 'axios';
+import apiClient from '../Respsitory/apiClient';
+import { httpClient } from '../Respsitory/httpclient';
 
 const BASE_URL = 'http://192.168.1.69:8080'; // Change this to your actual API base URL
 
 export const postLogin = async (credentials) => {
   try {
-    const response = await axios.post('http://192.168.1.69:8080/api/open/common/account/common-login', credentials);
+    const response = await httpClient.post('/api/open/common/account/common-login', credentials);
     return response.data;
   } catch (error) {
-    handleApiError(error);
+   
   }
 };
 

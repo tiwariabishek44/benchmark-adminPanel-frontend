@@ -1,0 +1,204 @@
+import React from 'react';
+import './Dashboard.css';
+
+const Dashboard = () => {
+  const teacherList = [
+    {
+      name: "Ms. Jane Doe",
+      phoneNuber: "(555) 555-7777",
+      email: "jane.doe@example.school.com",
+      isVerified: true
+    },
+    {
+      name: "Mr. John Smith",
+      phoneNuber: "(555) 555-8888",
+      email: "john.smith@example.school.com",
+      isVerified: false
+    }
+  ];
+
+  const studentList = [
+    {
+      name: "Alice Smith",
+      email: "alice.smith@example.com",
+      phoneNuber: "(555) 555-1212",
+      class: "10th Grade",
+      stream: "Science"
+    },
+    {
+      name: "Bob Johnson",
+      email: "bob.johnson@example.com",
+      phoneNuber: "(555) 555-2323",
+      class: "11th Grade",
+      stream: "Commerce"
+    }
+  ];
+
+  const courseList = [
+    {
+      name: "Physics Course",
+      stream: "Science",
+      class: "11th Grade",
+      subject: "Physics",
+      price: "$20"
+    },
+    {
+      name: "Math Course",
+      stream: "Science",
+      class: "10th Grade",
+      subject: "Mathematics",
+      price: "$15"
+    }
+  ];
+
+  const teacherCount = teacherList.length;
+
+  const classStudentCount = {};
+  studentList.forEach(student => {
+    classStudentCount[student.class] = classStudentCount[student.class] ? classStudentCount[student.class] + 1 : 1;
+  });
+
+  const classCourseCount = {};
+  courseList.forEach(course => {
+    classCourseCount[course.class] = classCourseCount[course.class] ? classCourseCount[course.class] + 1 : 1;
+  });
+
+  return (
+    <div className="dashboard">
+      <div className="grid-container">
+        <div className="section teachers-section">
+          <h2 className="section-title">Teachers</h2>
+          <div className="count-box">
+            <h3>Total Teachers</h3>
+            <p>{teacherCount}</p>
+          </div>
+        </div>
+        
+        <div className="section students-section">
+          <h2 className="section-title">Students</h2>
+          <div className="count-box">
+            <h3>Student Count by Class</h3>
+            <ul>
+              {Object.entries(classStudentCount).map(([className, count]) => (
+                <li key={className}>{className}: {count}</li>
+              ))}
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div className="section courses-section">
+          <h2 className="section-title">Courses</h2>
+          <div className="count-box">
+            <h3>Total Courses</h3>
+            <p>{courseList.length}</p>
+          </div>
+          <div className="count-box">
+            <h3>Course Count by Class</h3>
+            <ul>
+              {Object.entries(classCourseCount).map(([className, count]) => (
+                <li key={className}>{className}: {count}</li>
+              ))}
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
+
+
+.dashboard {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr   ;
+  gap: 20px;
+}
+
+.section {
+  background-color: #f9fafb;
+  border-radius: 10px;
+  /* padding: 20px; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.count-box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.count-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.count-box p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  text-align: left;
+  color: #333;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f4f4f4;
+}
+
+.table tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+.table tbody td {
+  color: #333;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+

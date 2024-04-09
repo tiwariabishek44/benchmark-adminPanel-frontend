@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Note.css";
+// import "./Note.css";
 
 import upload_area from "../../assets/upload_area.svg";
 import pdfLogo from "../../assets/pdf.png";
 
-const AddMCQ = () => {
+const addnote = () => {
   const [pdf, setPdf] = useState(null);
   const mcqDte = {
     name: "",
@@ -29,17 +29,17 @@ const AddMCQ = () => {
 
 
   return (
-    <div className="add-mcq">
+    <div className="add-note">
    
 
       {/* Stream */}
-      <div className="addmcq-itemfield">
+      <div className="addnote-itemfield">
         <p>Stream</p>
         <select
           value={mcqDetail.stream}
           onChange={changeHandler}
           name="stream"
-          className="add-mcq-selector"
+          className="add-note-selector"
         >
           <option value="science">Science</option>
           <option value="management">Management</option>
@@ -47,13 +47,13 @@ const AddMCQ = () => {
       </div>
 
       {/* Class */}
-      <div className="addmcq-itemfield">
+      <div className="addnote-itemfield">
         <p>Class</p>
         <select
           value={mcqDetail.class}
           onChange={changeHandler}
           name="class"
-          className="add-mcq-selector"
+          className="add-note-selector"
         >
           <option value="11">11</option>
           <option value="12">12</option>
@@ -61,13 +61,13 @@ const AddMCQ = () => {
       </div>
 
       {/* Subject */}
-      <div className="addmcq-itemfield">
+      <div className="addnote-itemfield">
         <p>Subjects</p>
         <select
           value={mcqDetail.subject}
           onChange={changeHandler}
           name="subject"
-          className="add-mcq-selector"
+          className="add-note-selector"
         >
           {mcqDetail.stream==="science"?(<>
           <option value="physics">Physics</option>
@@ -89,9 +89,9 @@ const AddMCQ = () => {
       </div>
 
       
-        <div className="addmcq-itemfield">
+        <div className="addnote-itemfield">
              {/* Name of product */}
-      <div className="addmcq-itemfield">
+      <div className="addnote-itemfield">
         <p>Note name</p>
         <input
           value={mcqDetail.name}
@@ -107,7 +107,7 @@ const AddMCQ = () => {
               src={pdf ? pdfLogo : upload_area}
               alt=""
               style={{ width: "250px", marginTop: "20px" }}
-              className="addmcq-thumnail-img"
+              className="addnote-thumnail-img"
             />
           </label>
           <input
@@ -129,4 +129,4 @@ const AddMCQ = () => {
   );
 };
 
-export default AddMCQ;
+export default addnote;

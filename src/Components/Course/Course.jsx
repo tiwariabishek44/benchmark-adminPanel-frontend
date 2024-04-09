@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Course.css';
+import './Courses.css';
 import AddCourse from './AddCourse/AddCourse';
 import CourseList from './CourseList/CourseList';
 
@@ -12,7 +12,7 @@ const Course = () => {
 
   return (
     <div className='course'>
-      <div className="options">
+      <div className="choose">
         <button onClick={() => handler("list")} style={{ backgroundColor: option === "list" ? "orange" : "#E5E8E8" }}>Course List</button>
         <button onClick={() => handler("add")} style={{ backgroundColor: option === "add" ? "orange" : "#E5E8E8" }}>Add Course</button>
       </div>

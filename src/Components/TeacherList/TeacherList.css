@@ -1,8 +1,7 @@
-/* TeacherList.css */
-
 .teacherListContainer {
   padding: 20px;
   width: 80%;
+  padding-top: 0px;
   background-color: #f9f9f9; /* Light background color */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -70,19 +69,21 @@
   border-bottom: 1px solid #ddd; /* Lighter border */
   text-align: left;
   font-size: 16px;
+  border: 1px solid #ddd; /* Add border */
 }
 
 .teacherTable th {
-  background-color: #2ecc71;
-  color: #fff;
+  background-color: #f2f2f2;
+  color: black;
+  font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.teacherTable tbody tr:nth-child(even) {
-  background-color: #f2f2f2; /* Alternate background color */
-}
 
+.teacherTable tbody td{
+  font-size: 16px;
+}
 .teacherTable tbody tr:hover {
   background-color: #e5e5e5; /* Hover background color */
 }
@@ -92,12 +93,36 @@
   border: none;
   border-radius: 5px;
   background-color: #4caf50;
-  color: #fff;
-  font-size: 14px; /* Smaller font size */
+  color: hsl(0, 0%, 100%);
+  font-size: 16px; /* Smaller font size */
   cursor: pointer;
+  font-weight: bolder;
   transition: background-color 0.3s ease;
 }
 
 .verifyButton:hover {
   background-color: #45a049;
 }
+
+
+.tableWrapper {
+  position: relative;
+  height: 500px; /* Fixed height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px;
+}
+
+.tableBodyWrapper {
+  overflow: hidden;
+}
+
+.teacherTable th:nth-child(4),
+.teacherTable td:nth-child(4) {
+  width: 20%;
+}
+
+/* .teacherTable th, */
+.teacherTable td {
+  height: 30px;
+}
+

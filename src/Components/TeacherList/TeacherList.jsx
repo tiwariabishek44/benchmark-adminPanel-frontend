@@ -6,6 +6,7 @@ const TeacherList = () => {
   const [filterOption, setFilterOption] = useState("verified");
   const [verificationMessage, setVerificationMessage] = useState("");
 
+ 
 const teacherList = [
   {
     name: "Ms. Jane Doe",
@@ -174,38 +175,32 @@ const teacherList = [
         </select>
       </div>
       {verificationMessage && <VerificationMessage message={verificationMessage} className="verifyButton" />}
-      <div className="tableWrapper">
-        <table className="teacherTable">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Verification Status</th>
-              {filterOption === "unverified" && <th>Action</th>}
+      <table className="teacherTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Verification Status</th>
+            {filterOption === "unverified" && <th>Action</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {filteredTeacherList.map((teacher, index) => (
+            <tr key={index}>
+              <td>{teacher.name}</td>
+              <td>{teacher.email}</td>
+              <td>{teacher.phoneNumber}</td>
+              <td>{teacher.isVerified ? 'Verified' : 'Not Verified'}</td>
+              {filterOption === "unverified" && (
+                <td>
+                  <button className="verifyButton" onClick={() => handleVerifyTeacher(index)}>Verify</button>
+                </td>
+              )}
             </tr>
-          </thead>
-        </table>
-        <div className="tableBodyWrapper">
-          <table className="teacherTable">
-            <tbody>
-              {filteredTeacherList.map((teacher, index) => (
-                <tr key={index}>
-                  <td>{teacher.name}</td>
-                  <td>{teacher.email}</td>
-                  <td>{teacher.phoneNumber}</td>
-                  <td>{teacher.isVerified ? 'Verified' : 'Not Verified'}</td>
-                  {filterOption === "unverified" && (
-                    <td>
-                      <button className="verifyButton" onClick={() => handleVerifyTeacher(index)}>Verify</button>
-                    </td>
-                  )}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
