@@ -34,14 +34,17 @@
   border-bottom: 1px solid #ddd; /* Lighter border */
   text-align: left;
   font-size: 16px;
+  
   /* position: fixed; */
 }
 
 .studentTable th {
-  background-color: #2ecc71;
-  color: #fff;
+  background-color: #e5e5e5;
+  color: black;
   font-weight: bold;
   text-transform: uppercase;
+  border-bottom: 1px solid #ddd; /* Lighter border */
+
 }
 
 .studentTable tbody tr:nth-child(even) {
@@ -49,5 +52,5 @@
 }
 
 .studentTable tbody tr:hover {
-  background-color: #e5e5e5; /* Hover background color */
+  background-color: #f2eeee; /* Hover background color */
 }

@@ -5,13 +5,6 @@ import apiClient from "./apiClient";
 import store from "../Components/redux/store";
 import { changeErrorMessage } from "../Components/redux/slice";
 
-// const showDialog = (message) => {
-//   const { showModal } = useModal();
-  
-  
-
-//   showModal(modalContent);
-// };
 
 apiClient.interceptors.response.use(
     (response) => {

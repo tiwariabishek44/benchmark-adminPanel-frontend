@@ -1,86 +1,94 @@
-import { httpClient } from "./httpclient";
+import { httpClient } from "./httpclient"; // Import httpClient instance
 
-export class BookRepository{
+export class BookRepository {
     
-    async getAllMcq(){
+    // Method to get all MCQs
+    async getAllMcq() {
         try {
-            const response = await httpClient.get("/api/open/common/book/mcq/get-all")
-            return response?.data
+            const response = await httpClient.get("/api/open/common/book/mcq/get-all"); // Send GET request
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async getAllPublication(){
+    // Method to get all publications
+    async getAllPublication() {
         try {
-            const response = await httpClient.get("/api/open/common/book/ecommerce/get-all")
-            return response?.data
+            const response = await httpClient.get("/api/open/common/book/ecommerce/get-all"); // Send GET request
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async getClassBooks(data){
+    // Method to get class books
+    async getClassBooks(data) {
         try {
-            const response = await httpClient.post("/api/open/common/book/class-books/get-all",data)
-            return response?.data
+            const response = await httpClient.post("/api/open/common/book/class-books/get-all", data); // Send POST request
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async uploadBook(data){
+    // Method to upload a book
+    async uploadBook(data) {
         try {
-            const response = await httpClient.post("/api/admin/book/upload-book",data);
-            return response?.data
+            const response = await httpClient.post("/api/admin/book/upload-book", data); // Send POST request
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async getAllSubject(){
+    // Method to get all subjects
+    async getAllSubject() {
         try {
-            const response = await httpClient.get("/api/open/common/book/subject/get-all")
-            return response?.data
+            const response = await httpClient.get("/api/open/common/book/subject/get-all"); // Send GET request
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async createSubject(data){
+    // Method to create a subject
+    async createSubject(data) {
         try {
-            const response = await httpClient.post("/api/admin/book/create-subject",data)
-            return response?.data
+            const response = await httpClient.post("/api/admin/book/create-subject", data); // Send POST request
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async downloadBook(url){
+    // Method to download a book
+    async downloadBook(url) {
         try {
-            const response = await httpClient.get(url,{responseType:'blob'})
-            return response?.data
+            const response = await httpClient.get(url, { responseType: 'blob' }); // Send GET request with blob responseType
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async deleteSubject(id){
+    // Method to delete a subject
+    async deleteSubject(id) {
         try {
-            const response = await httpClient.post("/api/admin/book/delete-subject/"+ id)
-            return response?.data
+            const response = await httpClient.post("/api/admin/book/delete-subject/" + id); // Send POST request
+            return response?.data; // Return response data
         } catch (error) {
-            
+            // Handle error
         }
     }
 
-    async deleteBook(id){
-        try{
-        const response = await httpClient.delete("/api/admin/book/book/delete/"+id);
-        return response?.data
-
-        } catch(error){
-
+    // Method to delete a book
+    async deleteBook(id) {
+        try {
+            const response = await httpClient.delete("/api/admin/book/book/delete/" + id); // Send DELETE request
+            return response?.data; // Return response data
+        } catch (error) {
+            // Handle error
         }
     }
 }

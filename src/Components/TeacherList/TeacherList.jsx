@@ -1,200 +1,78 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'; // React library imports
 import VerificationMessage from './verificationMessage/VerificationMeasage'; // Import the VerificationMessage component
-import './TeacherList.css';
+import './TeacherList.css'; // CSS styles import
+import TeacherRepository from '../../Respsitory/teacherRepositry'; // Teacher repository import
 
-const TeacherList = () => {
-  const [filterOption, setFilterOption] = useState("verified");
-  const [verificationMessage, setVerificationMessage] = useState("");
+const TeacherList = () => { // TeacherList functional component
+  const [filterOption, setFilterOption] = useState("verified"); // State for filter option
+  const [verificationMessage, setVerificationMessage] = useState(""); // State for verification message
+  const [verifiedTeachers, setverifiedTeachers] = useState([]); // State for verified teachers
+  const [unverifiedTeacher, setunverifiedTeacher] = useState([]); // State for unverified teachers
 
- 
-const teacherList = [
-  {
-    name: "Ms. Jane Doe",
-    phoneNumber: "(555) 555-7777",
-    email: "jane.doe@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. John Smith",
-    phoneNumber: "(555) 555-8888",
-    email: "john.smith@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Ms. Jane Doe",
-    phoneNumber: "(555) 555-7777",
-    email: "jane.doe@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. John Smith",
-    phoneNumber: "(555) 555-8888",
-    email: "john.smith@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Ms. Jane Doe",
-    phoneNumber: "(555) 555-7777",
-    email: "jane.doe@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. John Smith",
-    phoneNumber: "(555) 555-8888",
-    email: "john.smith@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Ms. Jane Doe",
-    phoneNumber: "(555) 555-7777",
-    email: "jane.doe@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. John Smith",
-    phoneNumber: "(555) 555-8888",
-    email: "john.smith@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Ms. Jane Doe",
-    phoneNumber: "(555) 555-7777",
-    email: "jane.doe@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. John Smith",
-    phoneNumber: "(555) 555-8888",
-    email: "john.smith@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Ms. Jane Doe",
-    phoneNumber: "(555) 555-7777",
-    email: "jane.doe@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. John Smith",
-    phoneNumber: "(555) 555-8888",
-    email: "john.smith@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Ms. Jane Doe",
-    phoneNumber: "(555) 555-7777",
-    email: "jane.doe@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. John Smith",
-    phoneNumber: "(555) 555-8888",
-    email: "john.smith@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Ms. Sarah Jones",
-    phoneNumber: "(555) 555-9999",
-    email: "sarah.jones@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. David Lee",
-    phoneNumber: "(555) 555-0000",
-    email: "david.lee@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Ms. Emily Brown",
-    phoneNumber: "(555) 555-1111",
-    email: "emily.brown@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Mr. William Johnson",
-    phoneNumber: "(555) 555-2222",
-    email: "william.johnson@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Ms. Alice Garcia",
-    phoneNumber: "(555) 555-3333",
-    email: "alice.garcia@example.school.com",
-    isVerified: false
-  },
-  {
-    name: "Mr. Michael Hernandez",
-    phoneNumber: "(555) 555-4444",
-    email: "michael.hernandez@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Ms. Christina Lopez",
-    phoneNumber: "(555) 555-5555",
-    email: "christina.lopez@example.school.com",
-    isVerified: true
-  },
-  {
-    name: "Mr. Robert Chen",
-    phoneNumber: "(555) 555-6666",
-    email: "robert.chen@example.school.com",
-    isVerified: false
-  }
-];
+  const teacherRepository = new TeacherRepository(); // Teacher repository instance creation
 
-  const handleVerifyTeacher = (index) => {
-    const verifiedTeacher = teacherList[index];
-    setVerificationMessage(`${verifiedTeacher.name} has been verified.`);
-    setTimeout(() => {
-      setVerificationMessage("");
-    }, 3000);
+  useEffect(() => { // useEffect hook for fetching teacher data
+    verifiedList(); // Fetch verified teachers
+    unVerifiedList(); // Fetch unverified teachers
+  }, []);
+
+  const verifiedList = () => { // Function to fetch verified teachers
+    teacherRepository.getVerifiedTeacher().then(data => {
+      setverifiedTeachers(data?.data); // Set verified teachers in state
+    });
   };
 
-  const filteredTeacherList = teacherList.filter(teacher => {
-    if (filterOption === "verified") {
-      return teacher.isVerified;
-    } else if (filterOption === "unverified") {
-      return !teacher.isVerified;
-    }
-    return true;
-  });
+  const unVerifiedList = () => { // Function to fetch unverified teachers
+    teacherRepository.getUnVerifiedTeacher().then(data => {
+      setunverifiedTeacher(data?.data); // Set unverified teachers in state
+    });
+  };
+
+  const handleVerifyTeacher = async (id) => { // Function to handle teacher verification
+    const response = await teacherRepository.verifyTeacher(id); // Verify teacher
+    console.log('Teacher verified:', response); // Log verification status
+    setVerificationMessage(`${response.name} has been verified.`); // Set verification message
+    window.location.reload(); // Reload the page
+  };
+
+  const filteredTeacherList = (filterOption === "verified") ? verifiedTeachers : unverifiedTeacher; // Determine filtered teacher list
 
   return (
-    <div className="teacherListContainer">
-      <h2 className="header">Teacher List</h2>
-      <div className="filterContainer">
-        <label className="filterLabel">Filter by Verification Status:</label>
+    <div className="teacherListContainer"> {/* Teacher list container */}
+      <h2 className="header">Teacher List</h2> {/* Header */}
+      <div className="filterContainer"> {/* Filter container */}
+        <label className="filterLabel">Filter by Verification Status:</label> {/* Filter label */}
         <select
           className="filterSelect"
           value={filterOption}
           onChange={(e) => setFilterOption(e.target.value)}
         >
-          <option value="all">All</option>
-          <option value="verified">Verified</option>
-          <option value="unverified">Unverified</option>
+          {/* <option value="all">All</option> */}
+          <option value="verified">Verified</option> {/* Option for verified teachers */}
+          <option value="unverified">Unverified</option> {/* Option for unverified teachers */}
         </select>
       </div>
-      {verificationMessage && <VerificationMessage message={verificationMessage} className="verifyButton" />}
-      <table className="teacherTable">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Verification Status</th>
-            {filterOption === "unverified" && <th>Action</th>}
+      {verificationMessage && <VerificationMessage message={verificationMessage} className="verifyButton" />} {/* Display verification message */}
+      <table className="teacherTable"> {/* Teacher table */}
+        <thead> {/* Table header */}
+          <tr> {/* Table row */}
+            <th>Name</th> {/* Name column */}
+            <th>Email</th> {/* Email column */}
+            <th>Phone Number</th> {/* Phone number column */}
+            <th>Verification Status</th> {/* Verification status column */}
+            {filterOption === "unverified" && <th>Action</th>} {/* Action column for unverified teachers */}
           </tr>
         </thead>
-        <tbody>
-          {filteredTeacherList.map((teacher, index) => (
-            <tr key={index}>
-              <td>{teacher.name}</td>
-              <td>{teacher.email}</td>
-              <td>{teacher.phoneNumber}</td>
-              <td>{teacher.isVerified ? 'Verified' : 'Not Verified'}</td>
+        <tbody> {/* Table body */}
+          {filteredTeacherList?.map((teacher, index) => (
+            <tr key={index}> {/* Table row */}
+              <td>{teacher.name}</td> {/* Name column */}
+              <td>{teacher.email}</td> {/* Email column */}
+              <td>{teacher.phoneNumber}</td> {/* Phone number column */}
+              <td>{teacher.isVerified ? 'Verified' : 'Not Verified'}</td> {/* Verification status column */}
               {filterOption === "unverified" && (
                 <td>
-                  <button className="verifyButton" onClick={() => handleVerifyTeacher(index)}>Verify</button>
+                  <button className="verifyButton" onClick={() => handleVerifyTeacher(teacher.id)}>Verify</button> {/* Verify button */}
                 </td>
               )}
             </tr>
@@ -203,6 +81,6 @@ const teacherList = [
       </table>
     </div>
   );
-}
+};
 
-export default TeacherList;
+export default TeacherList; // Export TeacherList component

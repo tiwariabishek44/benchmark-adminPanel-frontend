@@ -1,49 +1,54 @@
-/* FileUploadComponent.css */
+/* CSS styles for the AddCourse component */
 
+/* Container styles */
 .container {
-  padding: 20px;
-  max-width: 700px;
+  padding: 20px; /* Adds padding around the container */
+  max-width: 700px; /* Limits the maximum width of the container */
 }
 
+/* Title and form layout styles */
 .title {
-  text-align: center;
-  color: #333;
+  text-align: center; /* Centers the title horizontally */
+  color: #333; /* Sets text color to a dark gray */
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+form {
+  display: flex; /* Displays form elements in a column layout */
+  flex-direction: column; /* Stacks form elements vertically */
+  gap: 25px; /* Adds vertical spacing between form elements */
 }
 
+/* Label and input field styles */
 .form-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #555;
+  display: block; /* Displays labels as block elements */
+  margin-bottom: 5px; /* Adds spacing below each label */
+  color: #555; /* Sets label text color to a medium gray */
 }
 
 .text-input,
 .file-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 100%; /* Makes inputs fill their container horizontally */
+  padding: 8px; /* Adds padding inside the input */
+  border: 1px solid #ccc; /* Sets a light gray border */
+  border-radius: 4px; /* Rounds the corners of the input */
 }
 
 .file-input {
-  margin-top: 5px;
+  margin-top: 5px; /* Adds top margin for file inputs */
 }
 
+/* Submit button styles */
 .submit-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #4caf50; /* Sets button background color to green */
+  color: white; /* Sets text color to white */
+  padding: 10px; /* Adds padding inside the button */
+  border: none; /* Removes button border */
+  border-radius: 4px; /* Rounds the corners of the button */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  transition: background-color 0.3s; /* Adds smooth transition for background color change */
 }
 
+/* Hover effect for submit button */
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* Darkens button background color on hover */
 }

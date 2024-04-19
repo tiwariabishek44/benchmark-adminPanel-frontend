@@ -1,24 +1,27 @@
+/* CSS for MCQlist component */
+
 .mcqlist {
-  margin-top: 20px;
+  margin-top: 20px; /* Add margin at the top */
 }
 
 .mcqlist table {
-  width: 100%;
-  border-collapse: collapse;
+  width: 100%; /* Set table width to 100% */
+  border-collapse: collapse; /* Collapse table borders */
 }
 
 .mcqlist th,
 .mcqlist td {
-  border: 1px solid #e2e2e2;
-  padding: 15px;
-  text-align: left;
+  border: 1px solid #e2e2e2; /* Set border for table cells */
+  padding: 15px; /* Add padding to cells */
+  text-align: left; /* Align text to the left */
 }
 
 .mcqlist th {
-  background-color: #f2f2f2;
-  padding: 20px;
+  background-color: #f2f2f2; /* Set background color for table header */
+  padding: 20px; /* Add padding to table header cells */
 }
 
+/* Set width for specific table columns */
 .mcqlist th:first-child,
 .mcqlist td:first-child {
   width: 5%;
@@ -45,14 +48,15 @@
 }
 
 .mcqlist td a {
-  color: blue;
-  text-decoration: underline;
+  color: blue; /* Set link color */
+  text-decoration: underline; /* Underline link text */
 }
 
 .mcqlist td a:hover {
-  color: darkblue;
+  color: darkblue; /* Change link color on hover */
 }
 
+/* Styles for remove icon */
 .mcqlist-remove-icon {
   width: 20px;
   height: 20px;
@@ -61,49 +65,49 @@
 }
 
 .mcqlist-remove-icon:hover {
-  transform: scale(1.15);
+  transform: scale(1.15); /* Scale remove icon on hover */
 }
 
 .mcqlist-remove-icon:active {
   transform: scale(0.898);
 }
 
+/* Styles for remove button */
 .rmv-button {
-  background-color: rgba(195, 2, 2, 0.963);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  background-color: rgba(195, 2, 2, 0.963); /* Set background color */
+  color: white; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add border radius */
+  padding: 8px 16px; /* Add padding */
+  cursor: pointer; /* Change cursor to pointer */
+  font-size: 16px; /* Set font size */
+  font-weight: 600; /* Set font weight */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Add box shadow */
 }
 
 .rmv-button:hover {
-  transform: scale(1.04);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transform: scale(1.04); /* Scale button on hover */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Add box shadow */
 }
 
+/* Styles for button container */
 .button-container {
-  background-color: #099a13;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #099a13; /* Set background color */
+  color: white; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add border radius */
+  padding: 8px 12px; /* Add padding */
+  cursor: pointer; /* Change cursor to pointer */
+  font-size: 15px; /* Set font size */
+  font-weight: 600; /* Set font weight */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Add box shadow */
 }
 
 .button-container a{
-  text-decoration: none;
-  color: white;
-
+  text-decoration: none; /* Remove default underline from links */
+  color: white; /* Set text color */
 }
- .button-container:hover{
-  transform: scale(1.04);
 
- }
+.button-container:hover{
+  transform: scale(1.04); /* Scale button on hover */
+}

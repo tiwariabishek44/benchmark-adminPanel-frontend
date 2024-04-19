@@ -1,29 +1,29 @@
-.ecom{
-   display: flex;
+.ecom {
+  display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  /* max-width: 800px; */
-  padding: 30px 50px;
-  /* margin: 20px auto; */
-  border-radius: 6px;
-  background-color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  padding: 30px 50px; /* Adds padding inside the container */
+  border-radius: 6px; /* Rounds the corners of the container */
+  background-color: white; /* Sets background color */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds box shadow */
+  width: 100%; /* Sets width to 100% */
 }
-.optn{
-  display: flex;
-  gap: 30px;
-}
-.optn button{
-  padding: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  border-width: 0px;
-  border-radius: 10px;
-  background-color: orange;
-}
-.optn button:hover{
-  transform: translateY(3px) scale(1.07);
 
+.optn {
+  display: flex; /* Displays buttons in a flex layout */
+  gap: 30px; /* Adds space between buttons */
+}
+
+.optn button {
+  padding: 15px; /* Adds padding inside buttons */
+  font-size: 20px; /* Sets font size for buttons */
+  font-weight: bold; /* Sets font weight for buttons */
+  border-width: 0px; /* Removes button border */
+  border-radius: 10px; /* Rounds the corners of buttons */
+  background-color: orange; /* Sets background color for buttons */
+}
+
+.optn button:hover {
+  transform: translateY(3px) scale(1.07); /* Adds hover effect to buttons */
 }

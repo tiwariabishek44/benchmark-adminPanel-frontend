@@ -1,6 +1,15 @@
 import { httpClient } from "./httpclient";
 
 export class EcommerceRepository{
+
+    async getEcommerceBook(id){
+        try {
+            const response = await httpClient.get("api/open/common/book/ecommerce/get/" + id)
+            return response?.data
+        } catch (error) {
+            
+        }
+    }
     
     async getAllEcommerce(){
         try {

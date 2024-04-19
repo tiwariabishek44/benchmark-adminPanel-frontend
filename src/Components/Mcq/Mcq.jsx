@@ -1,26 +1,32 @@
-import React, { useState } from 'react'
-import AddMCQ from './AddMCQ'
-import MCQList from './MCQList'
-import './Mcq.css'
+import React, { useState } from 'react';
+import AddMCQ from './AddMCQ';
+import MCQList from './MCQList';
+import './Mcq.css'; // Import CSS file for styling
 
 const Mcq = () => {
- const [option, setoption] = useState('list')
+  // State to manage which option is currently selected ('list' or 'add')
+  const [option, setoption] = useState('list');
 
+  // Function to handle button clicks and update the selected option
   const handler = (val) => {
     setoption(val);
-  }
+  };
 
   return (
-    <div className='mcq'  >
+    <div className='mcq'> {/* Main container for MCQ component */}
+      {/* Options buttons container */}
       <div className="optons">
-                <button onClick={()=>handler("list")} style={{ backgroundColor: option === "list" ? "orange" : "#E5E8E8" }} > MCQ List</button>
-
-        <button onClick={()=>handler("add")}  style={{ backgroundColor: option === "add" ? "orange" : "#E5E8E8" }}>Add MCQ</button>
+        {/* Button to display MCQ list */}
+        <button onClick={() => handler("list")} style={{ backgroundColor: option === "list" ? "orange" : "#E5E8E8" }}>MCQ List</button>
+        
+        {/* Button to add MCQ */}
+        <button onClick={() => handler("add")} style={{ backgroundColor: option === "add" ? "orange" : "#E5E8E8" }}>Add MCQ</button>
       </div>
-      {option==='list'?(<MCQList />):(<AddMCQ />) }
-  
+
+      {/* Conditional rendering based on the selected option */}
+      {option === 'list' ? (<MCQList />) : (<AddMCQ />)}
     </div>
-  )
+  );
 }
 
-export default Mcq
+export default Mcq;

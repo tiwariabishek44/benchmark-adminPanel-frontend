@@ -1,30 +1,34 @@
-.mcq{
-   display: flex;
+.mcq {
+  /* Styles for the main container of MCQ component */
+  display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  /* max-width: 800px; */
   padding: 30px 50px;
-  /* margin: 20px auto; */
   border-radius: 6px;
   background-color: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  background-color: rebeccapurples;
+  background-color: rebeccapurples; /* Background color for MCQ container */
 }
-.optons{
+
+.optons {
+  /* Styles for the options container */
   display: flex;
-  gap: 50px;
+  gap: 50px; /* Gap between buttons */
 }
-.optons button{
+
+.optons button {
+  /* Styles for option buttons */
   padding: 15px;
   font-size: 20px;
   font-weight: bold;
   border-width: 0px;
   border-radius: 10px;
-  background-color: orange;
+  background-color: orange; /* Default background color for buttons */
 }
-.optons button:hover{
-  transform: translateY(3px) scale(1.07);
 
+.optons button:hover {
+  /* Styles for button hover effect */
+  transform: translateY(3px) scale(1.07); /* Scale and move button slightly on hover */
 }

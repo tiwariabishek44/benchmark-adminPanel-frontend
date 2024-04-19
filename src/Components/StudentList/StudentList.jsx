@@ -1,54 +1,40 @@
-import React from 'react';
-import './StudentList.css';
-import StudentRepository from '../../Respsitory/studentRepository';
+import React from 'react'; // React library import
+import './StudentList.css'; // CSS styles import
+import StudentRepository from '../../Respsitory/studentRepository'; // Student repository import
 
-const StudentList = () => {
-   
-  const studentRepository = new StudentRepository()
+const StudentList = () => { // StudentList functional component
 
-  const [studentData, setStudentData] = React.useState([])
+  const studentRepository = new StudentRepository() // Student repository instance creation
 
-  React.useEffect(()=>{
-    studentRepository.getAllStudentWitlPurchase().then(data => {
-      console.log("studentList: " ,data)
+  const [studentData, setStudentData] = React.useState([]) // State for student data
+
+  React.useEffect(()=>{ // useEffect hook for fetching student data
+    studentRepository.getAllStudentWitlPurchase().then(data => { // Fetch student data
+      setStudentData(data?.data); // Set student data in state
+      console.log("studentList: " ,data?.data) // Log student data
     })
-  },[])
+  },[]) // Run effect only once on component mount
 
   return (
-    <div className="studentListContainer">
-      <h2 className="header">Student List</h2>
-      <div >
-        <table className="studentTable">
-          <thead>
-            <tr>
-              <th>Student Name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Class</th>
-              <th>Stream</th>
+    <div className="studentListContainer"> {/* Student list container */}
+      <h2 className="header">Student List</h2> {/* Header */}
+      <div className="tableWrapper"> {/* Table wrapper */}
+        <table className="studentTable"> {/* Student table */}
+          <thead> {/* Table header */}
+            <tr> {/* Table row */}
+              <th>Student Name</th> {/* Student name column */}
+              <th>Email</th> {/* Email column */}
+              <th>Phone Number</th> {/* Phone number column */}
+              <th>Stream</th> {/* Stream column */}
             </tr>
           </thead>
-          <tbody>
-            {/*
-            
-              "id": 0,
-      "email": "string",
-      "phoneNumber": "string",
-      "name": "string",
-      "password": "string",
-      "accountType": "STUDENT",
-      "stream": "SCIENCE",
-      "createdDate": "2024-03-13",
-      "isActive": true,
-      "isVerified": true
-          
-  */}
-            {studentData.map((student, index) => (
-              <tr key={index}>
-                <td>{student.name}</td>
-                <td>{student.email}</td>
-                <td>{student.phoneNuber}</td>
-                <td>{student.stream}</td>
+          <tbody> {/* Table body */}
+            {studentData.map((student, index) => ( // Map through student data to render rows
+              <tr key={index}> {/* Table row */}
+                <td>{student.name}</td> {/* Student name column */}
+                <td>{student.email}</td> {/* Email column */}
+                <td>{student.phoneNumber}</td> {/* Phone number column */}
+                <td>{student.stream}</td> {/* Stream column */}
               </tr>
             ))}
           </tbody>
@@ -58,4 +44,4 @@ const StudentList = () => {
   );
 };
 
-export default StudentList;
+export default StudentList; // Export StudentList component

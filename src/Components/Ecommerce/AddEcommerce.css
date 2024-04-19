@@ -1,49 +1,47 @@
-/* FileUploadComponent.css */
-
 .container {
-  padding: 20px;
-  max-width: 700px;
+  padding: 20px; /* Adds padding around the container */
+  max-width: 700px; /* Sets maximum width for the container */
 }
 
 .title {
-  text-align: center;
-  color: #333;
+  text-align: center; /* Centers the text */
+  color: #333; /* Sets text color */
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+form {
+  display: flex; /* Displays form items in a flex layout */
+  flex-direction: column; /* Arranges form items in a vertical column */
+  gap: 25px; /* Adds space between form items */
 }
 
 .form-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #555;
+  display: block; /* Displays form labels as blocks */
+  margin-bottom: 5px; /* Adds bottom margin to form labels */
+  color: #555; /* Sets text color for form labels */
 }
 
 .text-input,
 .file-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 100%; /* Sets width to 100% */
+  padding: 8px; /* Adds padding */
+  border: 1px solid #ccc; /* Adds border */
+  border-radius: 4px; /* Rounds corners */
 }
 
 .file-input {
-  margin-top: 5px;
+  margin-top: 5px; /* Adds top margin for file input */
 }
 
 .submit-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #4caf50; /* Sets background color for submit button */
+  color: white; /* Sets text color for submit button */
+  padding: 10px; /* Adds padding */
+  border: none; /* Removes border */
+  border-radius: 4px; /* Rounds corners */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  transition: background-color 0.3s; /* Adds transition effect */
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* Changes background color on hover */
 }

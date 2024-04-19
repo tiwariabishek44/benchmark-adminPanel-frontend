@@ -1,121 +1,116 @@
+/* Styling for Inquiry component */
+
 .inquiry {
-    margin-top: 20px;
-  }
-  
-  .inquiry table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .inquiry th,
-  .inquiry td {
-    border: 1px solid #e2e2e2;
-    padding: 15px;
-    text-align: left;
-  }
-  
-  .inquiry th {
-    background-color: #f2f2f2;
-    padding: 20px;
-    font-size: 20px;
-  }
-  
-  .inquiry th:first-child,
-  .inquiry td:first-child {
-    width: 10%;
-  }
-  
-  .inquiry th:nth-child(2),
-  .inquiry td:nth-child(2) {
-    width: 20%;
-  }
-  
-  .inquiry th:nth-child(3),
-  .inquiry td:nth-child(3) {
-    width: 20%;
-  }
-  
-  .inquiry th:nth-child(4),
-  .inquiry td:nth-child(4) {
-    width: 30%;
-  }
-  
-  .inquiry th:nth-child(5),
-  .inquiry td:nth-child(5) {
-    width: 20%;
-  }
- 
-  
-  .inquiry-remove-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .inquiry-remove-icon:hover {
-    transform: scale(1.15);
-  }
-  
-  .inquiry-remove-icon:active {
-    transform: scale(0.898);
-  }
-  
-  .rmv-button {
-    background-color: rgba(214, 28, 28, 0.963);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  
-  }
-  
-  .rmv-button:hover {
-    transform: scale(1.04);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  .button-container {
-    background-color: #099a13;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  .button-container a{
-    text-decoration: none;
-    color: white;
-  
-  }
-   .button-container:hover{
-    transform: scale(1.04);
-  
-   }
-   .inquiry tr:hover {
-    background-color: #e8e8e8;
-    transform: scale(1.00003);
+  margin-top: 20px;  /* Margin from the top */
+}
 
-  }
+/* Table styling */
+.inquiry table {
+  width: 100%;  /* Full width */
+  border-collapse: collapse;  /* Collapse border spacing */
+}
 
-  .popup-container-main{
+/* Table header and cell styling */
+.inquiry th,
+.inquiry td {
+  border: 1px solid #e2e2e2;  /* Border for table cells */
+  padding: 15px;  /* Padding inside table cells */
+  text-align: left;  /* Left align text */
+}
 
-    padding:25px 25px 25px 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 20px;
-  }
+/* Styling for table header */
+.inquiry th {
+  background-color: #f2f2f2;  /* Light gray background for table header */
+  padding: 20px;  /* Padding inside table header cells */
+  font-size: 20px;  /* Font size */
+}
 
-  .popup-container-main > div > img{
-    height: 200px;
-    width: 200px;
-  }
+/* Set widths for specific table columns */
+.inquiry th:first-child,
+.inquiry td:first-child {
+  width: 10%;  /* Width of the first column */
+}
+
+.inquiry th:nth-child(2),
+.inquiry td:nth-child(2) {
+  width: 20%;  /* Width of the second column */
+}
+
+.inquiry th:nth-child(3),
+.inquiry td:nth-child(3) {
+  width: 20%;  /* Width of the third column */
+}
+
+.inquiry th:nth-child(4),
+.inquiry td:nth-child(4) {
+  width: 30%;  /* Width of the fourth column */
+}
+
+.inquiry th:nth-child(5),
+.inquiry td:nth-child(5) {
+  width: 20%;  /* Width of the fifth column */
+}
+
+/* Styling for remove button */
+.rmv-button {
+  background-color: rgba(214, 28, 28, 0.963);  /* Red background color */
+  color: white;  /* White text color */
+  border: none;  /* No border */
+  border-radius: 4px;  /* Rounded corners */
+  padding: 8px 16px;  /* Padding inside button */
+  cursor: pointer;  /* Cursor type */
+  font-size: 18px;  /* Font size */
+  font-weight: 600;  /* Bold font weight */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Box shadow for button */
+}
+
+/* Hover effect for remove button */
+.rmv-button:hover {
+  transform: scale(1.04);  /* Scale effect on hover */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Box shadow on hover */
+}
+
+/* Styling for button container */
+.button-container {
+  background-color: #099a13;  /* Green background color */
+  color: white;  /* White text color */
+  border: none;  /* No border */
+  border-radius: 4px;  /* Rounded corners */
+  padding: 8px 12px;  /* Padding inside button */
+  cursor: pointer;  /* Cursor type */
+  font-size: 15px;  /* Font size */
+  font-weight: 600;  /* Bold font weight */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Box shadow for button */
+}
+
+/* Styling for button container link */
+.button-container a {
+  text-decoration: none;  /* No text decoration for link */
+  color: white;  /* White text color */
+}
+
+/* Hover effect for button container */
+.button-container:hover {
+  transform: scale(1.04);  /* Scale effect on hover */
+}
+
+/* Hover effect for table row */
+.inquiry tr:hover {
+  background-color: #e8e8e8;  /* Light gray background on hover */
+  transform: scale(1.00003);  /* Scale effect on hover */
+}
+
+/* Styling for popup container main */
+.popup-container-main {
+  padding: 25px;  /* Padding inside popup container */
+  display: flex;  /* Display as flex */
+  flex-direction: column;  /* Column direction for flex */
+  gap: 10px;  /* Gap between child elements */
+  font-size: 20px;  /* Font size */
+}
+
+/* Styling for popup container main image */
+.popup-container-main > div > img {
+  height: 200px;  /* Image height */
+  width: 200px;  /* Image width */
+}

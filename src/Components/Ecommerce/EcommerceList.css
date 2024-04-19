@@ -1,66 +1,66 @@
-/* EcommerceList.css */
+/* Styling for EcommerceList component */
 
 .ecommerce {
-  margin-top: 20px;
-  background-color: white;
+  margin-top: 20px;  /* Margin from the top */
+  background-color: white;  /* White background */
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+  width: 100%;  /* Full width */
+  border-collapse: collapse;  /* Collapse border spacing */
 }
 
 .ecommerce-format-main th {
-  background-color: #f2f2f2;
-  color: #333;
-  font-size: 20px;
-  font-weight: bolder;
-  padding: 20px;
-  text-align: center;
+  background-color: #f2f2f2;  /* Light gray background for table header */
+  color: #333;  /* Dark text color */
+  font-size: 20px;  /* Font size */
+  font-weight: bolder;  /* Bold font weight */
+  padding: 20px;  /* Padding inside table header cells */
+  text-align: center;  /* Center align text */
 }
 
 .ecommerce-format-main th,
 .ecommerce-format td {
-  border: 1px solid #ddd;
+  border: 1px solid #ddd;  /* Border for table cells */
 }
 
 .ecommerce-format {
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;  /* Smooth transition for background color change */
 }
 
 .ecommerce-format:hover {
-  background-color: #e8e8e8;
-  transform: scale(1.00003);
-
+  background-color: #e8e8e8;  /* Light gray background on hover */
+  transform: scale(1.00003);  /* Scale effect on hover */
 }
 
 .ecommerce-format td {
-  padding: 10px;
-  text-align: center;
+  padding: 10px;  /* Padding inside table cells */
+  text-align: center;  /* Center align text */
 }
 
 .ecommerce-icon {
-  width: 60px;
-  height: 60px;
+  width: 60px;  /* Image width */
+  height: 60px;  /* Image height */
 }
 
 .removeButton {
-  width: 110px;
-  height: 45px;
-  border: none;
-  border-radius: 5px;
-  background-color: #e74c3c;
-  color: white;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  width: 110px;  /* Button width */
+  height: 45px;  /* Button height */
+  border: none;  /* No border */
+  border-radius: 5px;  /* Rounded corners */
+  background-color: #e74c3c;  /* Red background color */
+  color: white;  /* White text color */
+  font-size: 15px;  /* Font size */
+  font-weight: 700;  /* Bold font weight */
+  cursor: pointer;  /* Cursor type */
+  transition: background-color 0.3s ease;  /* Smooth transition for background color change */
 }
 
 .removeButton:hover {
-  transform: scale(1.01699);
+  transform: scale(1.01699);  /* Scale effect on hover */
 }
 
 .removeButton:active {
-  transform: scale(0.899);
+  transform: scale(0.899);  /* Scale effect on button click */
 }
+

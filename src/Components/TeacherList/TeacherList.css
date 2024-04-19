@@ -75,15 +75,15 @@
 .teacherTable th {
   background-color: #f2f2f2;
   color: black;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-
 .teacherTable tbody td{
   font-size: 16px;
 }
+
 .teacherTable tbody tr:hover {
   background-color: #e5e5e5; /* Hover background color */
 }
@@ -103,26 +103,3 @@
 .verifyButton:hover {
   background-color: #45a049;
 }
-
-
-.tableWrapper {
-  position: relative;
-  height: 500px; /* Fixed height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 10px;
-}
-
-.tableBodyWrapper {
-  overflow: hidden;
-}
-
-.teacherTable th:nth-child(4),
-.teacherTable td:nth-child(4) {
-  width: 20%;
-}
-
-/* .teacherTable th, */
-.teacherTable td {
-  height: 30px;
-}
-

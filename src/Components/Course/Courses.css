@@ -1,30 +1,31 @@
-.course{
-   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  width: 100%;
-  /* max-width: 800px; */
-  padding: 30px 50px;
-  /* margin: 20px auto; */
-  border-radius: 6px;
-  background-color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-}
-.choose{
-  display: flex;
-  gap: 30px;
-  
-}
-.choose button{
-  padding: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  border-width: 0px;
-  border-radius: 10px;
-  background-color: orange;
-}
-.choose button:hover{
-  transform: translateY(3px) scale(1.07);
 
+/* Courses.css */
+
+.course {
+  display: flex; /* Displays content as a flexbox */
+  flex-direction: column; /* Stacks content vertically */
+  box-sizing: border-box; /* Includes padding and border in width/height calculations */
+  width: 100%; /* Makes component fill its container width */
+  padding: 30px 50px; /* Adds padding inside the component */
+  border-radius: 6px; /* Rounds the corners of the component */
+  background-color: white; /* Sets background color to white */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds box shadow */
+}
+
+.choose {
+  display: flex; /* Displays buttons as flex items */
+  gap: 30px; /* Adds horizontal spacing between buttons */
+}
+
+.choose button {
+  padding: 15px; /* Adds padding inside the buttons */
+  font-size: 20px; /* Sets font size of button text */
+  font-weight: bold; /* Makes button text bold */
+  border-width: 0px; /* Removes button border */
+  border-radius: 10px; /* Rounds the corners of the button */
+  background-color: orange; /* Sets button background color to orange */
+}
+
+.choose button:hover {
+  transform: translateY(3px) scale(1.07); /* Adds hover effect to buttons */
 }

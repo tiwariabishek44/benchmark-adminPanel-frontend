@@ -1,17 +1,21 @@
-import React from "react";
-import './MCQLts.css';
-import { BookRepository } from "../../Respsitory/bookRespsitory";
-import { Popconfirm } from "antd";
-import { consoleLog } from "../../utils/helpers";
+import React from "react"; // Import React
+import './MCQLts.css'; // Import CSS file for styling
+import { BookRepository } from "../../Respsitory/bookRespsitory"; // Import BookRepository from repository
+import { Popconfirm } from "antd"; // Import Popconfirm component from Ant Design
+import { consoleLog } from "../../utils/helpers"; // Import consoleLog utility function
 
+// Retrieve base URL from environment variables
 const VITE_REACT_APP_BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
 
+// Functional component for displaying MCQ list
 const MCQlist = () => {
-
+  // Create an instance of BookRepository
   const mcqRespository = new BookRepository();
  
+  // State to store list of MCQs
   const [mcq, setMcq] = React.useState([]);
 
+  // Effect to fetch MCQs when the component mounts
   React.useEffect(()=>{
     const fetchMCQs = async () => {
       try {
@@ -26,8 +30,8 @@ const MCQlist = () => {
     
     fetchMCQs();
   }, [])
-  
 
+  // Function to handle removal of MCQ
   const handleRemoveNote = (noteId) => {
     mcqRespository.deleteBook(noteId).then(result=>{
       if(result && result.success){
@@ -41,38 +45,39 @@ const MCQlist = () => {
   };
 
   return (
-    <div className="mcqlist">
+    <div className="mcqlist"> {/* Container for MCQ list */}
       <table>
         <thead>
           <tr>
-            <th>S.N</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>View</th>
-            <th>Remove</th>
+            <th>S.N</th> {/* Serial number column */}
+            <th>Name</th> {/* Name column */}
+            <th>Description</th> {/* Description column */}
+            <th>View</th> {/* View button column */}
+            <th>Remove</th> {/* Remove button column */}
           </tr>
         </thead>
         <tbody>
-          {mcq.map((note, index) => (
+          {mcq.map((note, index) => ( 
             <tr key={note.fileLocation}>
-              <td>{index + 1}</td>
-              <td>{note.name}</td>
-              <td>{note.description}</td>
+              <td>{index + 1}</td> {/* Display serial number */}
+              <td>{note.name}</td> {/* Display MCQ name */}
+              <td>{note.description}</td> {/* Display MCQ description */}
               <td>
-              <button className="button-container">
-      <a
-        href={VITE_REACT_APP_BASE_URL + note.fileLocation}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{textDecoration:'none',color:'white'}}
-        className="button-link" // Apply the button-link class to the <a> element
-      >
-        Open 
-      </a>
-    </button>
-              {/* <a href={VITE_REACT_APP_BASE_URL + note.fileLocation} target="_blank" rel="noopener noreferrer" className="open-file-link">Open File</a> */}
+                {/* Button to view MCQ */}
+                <button className="button-container">
+                  <a
+                    href={VITE_REACT_APP_BASE_URL + note.fileLocation}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{textDecoration:'none',color:'white'}}
+                    className="button-link" // Apply the button-link class to the <a> element
+                  >
+                    Open 
+                  </a>
+                </button>
               </td>
               <td>
+                {/* Confirmation popover for removing MCQ */}
                 <Popconfirm
                   title="Delete the MCQ"
                   description="Are you sure to delete this MCQ?"
@@ -91,4 +96,4 @@ const MCQlist = () => {
   );
 };
 
-export default MCQlist;
+export default MCQlist; // Export MCQlist component

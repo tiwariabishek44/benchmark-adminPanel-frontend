@@ -1,64 +1,63 @@
-/* Sidebar.css */
+/* Sidebar styles */
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 280px;
-  min-width: 280px;
+  display: flex; /* Display items in a column */
+  flex-direction: column; /* Arrange items in a column */
+  gap: 20px; /* Gap between items */
+  width: 100%; /* Full width */
+  max-width: 280px; /* Maximum width */
+  min-width: 280px; /* Minimum width */
   background-color: #ffffff; /* White background */
-  border-radius: 15px;
-  padding: 20px;
-  padding-bottom: 100px;
+  border-radius: 15px; /* Border radius */
+  padding: 20px; /* Padding */
+  padding-bottom: 100px; /* Bottom padding */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
 .sidbar-item {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-    width: 100%;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 16px;
+  display: flex; /* Display items in a row */
+  align-items: center; /* Align items vertically */
+  gap: 30px; /* Gap between items */
+  width: 100%; /* Full width */
+  padding: 12px; /* Padding */
+  border-radius: 5px; /* Border radius */
+  font-size: 16px; /* Font size */
   color: #000000; /* Black text color */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  border: none;
+  cursor: pointer; /* Cursor */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition */
+  border: none; /* No border */
   background-color: transparent; /* Transparent background */
 }
 
 .sidbar-item:hover {
   background-color: rgba(0, 0, 0, 0.05); /* Semi-transparent background on hover */
-  transform: translateY(-2px);
- 
+  transform: translateY(-2px); /* Translate on hover */
 }
 
 .sidbar-item img {
-  margin-right: 12px;
-  filter: invert(1);
+  margin-right: 12px; /* Margin right */
+  filter: invert(1); /* Invert color */
 }
 
 .sidbar-item .badge {
   background-color: #007bff; /* Blue badge background */
   color: #ffffff; /* White text color */
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 8px;
+  font-size: 12px; /* Font size */
+  padding: 4px 8px; /* Padding */
+  border-radius: 8px; /* Border radius */
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 70px;
-  height: 1px;
-  margin-top: 50px;
+  display: flex; /* Display logo */
+  justify-content: center; /* Center justify */
+  align-items: center; /* Center align */
+  margin-bottom: 70px; /* Bottom margin */
+  height: 1px; /* Height */
+  margin-top: 50px; /* Top margin */
 }
 
 .logo img {
-  width: 80%;
+  width: 80%; /* Width */
 }
 
 /* Active button style */
@@ -66,28 +65,23 @@
   background-color: rgba(0, 0, 0, 0.05); /* Semi-transparent background for active button */
 }
 
-
-.logout-button{ 
-  /* width: max-content; */
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: red; */
-  
+.logout-button { 
+  width: 100%; /* Full width */
+  display: flex; /* Display items in a row */
+  justify-content: center; /* Center justify */
+  align-items: center; /* Center align */
 }
-.logout-button button{
-  padding: 15px;
-  font-size: 25px;
-  font-weight: bold;
-  border-width: 0px;
-  border-radius: 10px;
-  background-color: orange;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-
+.logout-button button {
+  padding: 15px; /* Padding */
+  font-size: 25px; /* Font size */
+  font-weight: bold; /* Bold font weight */
+  border-width: 0px; /* Border width */
+  border-radius: 10px; /* Border radius */
+  background-color: orange; /* Background color */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Box shadow */
 }
-.logout-button button:hover{
-  transform: translateY(3px) scale(1.04);
 
+.logout-button button:hover {
+  transform: translateY(3px) scale(1.04); /* Translate and scale on hover */
 }
