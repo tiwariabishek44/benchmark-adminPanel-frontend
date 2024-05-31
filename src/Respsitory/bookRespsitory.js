@@ -32,6 +32,15 @@ export class BookRepository {
         }
     }
 
+    async getManualOfSubject(id){
+        try {
+            const response = await httpClient.get("/api/open/common/book/subject/manual/get/"+id); // Send POST request
+            return response?.data; // Return response data
+        } catch (error) {
+            // Handle error
+        }
+    }
+
     // Method to upload a book
     async uploadBook(data) {
         try {
@@ -41,6 +50,17 @@ export class BookRepository {
             // Handle error
         }
     }
+
+
+        // Method to upload a Manual
+        async uploadManual(data) {
+            try {
+                const response = await httpClient.post("/api/admin/book/upload-manual", data); // Send POST request
+                return response?.data; // Return response data
+            } catch (error) {
+                // Handle error
+            }
+        }
 
     // Method to get all subjects
     async getAllSubject() {
@@ -91,4 +111,16 @@ export class BookRepository {
             // Handle error
         }
     }
+
+    // Method to delete a manual
+    async deleteManual(id) {
+        try {
+            const response = await httpClient.delete("/api/admin/book/manual/delete/" + id); // Send DELETE request
+            return response?.data; // Return response data
+        } catch (error) {
+            // Handle error
+        }
+    }
+
+
 }

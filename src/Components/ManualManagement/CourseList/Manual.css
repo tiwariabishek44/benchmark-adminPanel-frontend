@@ -1,0 +1,77 @@
+/* CourseList.css */
+
+/* Table styling */
+.courseDetail {
+  margin-top: 20px; /* Adds top margin */
+  background-color: white; /* Sets background color to white */
+  border-collapse: collapse; /* Collapses table borders */
+  width: 100%; /* Makes table fill its container */
+}
+
+/* Table header styles */
+.courseDetail-format-main th {
+  background-color: #f2f2f2; /* Sets background color of header row */
+  color: #333; /* Sets text color of header row */
+  font-size: 20px; /* Sets font size of header row */
+  font-weight: bold; /* Makes header row text bold */
+  padding: 15px; /* Adds padding around header cells */
+  text-align: center; /* Centers text in header cells */
+  border: 1px solid #ddd; /* Adds border to header cells */
+}
+
+/* Table header and cell styles */
+.courseDetail-format-main th,
+.courseDetail-format td {
+  border: 1px solid #ddd; /* Adds border to table cells */
+  text-align: center; /* Centers text in cells */
+}
+
+/* Table cell styles */
+.courseDetail-format td {
+  padding: 15px; /* Adds padding around cell content */
+}
+
+/* Hover effect for table rows */
+.courseDetail-format:hover {
+  background-color: #f2f2f2; /* Changes background color on hover */
+}
+
+/* Popup styles */
+.popup {
+  background-color: white; /* Sets background color of popup */
+  width: 700px; /* Sets width of popup */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15); /* Adds box shadow */
+  padding-left: 0px; /* Adjusts left padding */
+}
+
+/* Close button styles */
+.popup-close {
+  width: 100%; /* Sets width to 100% */
+  display: flex; /* Displays content as flexbox */
+  justify-content: flex-end; /* Aligns content to the end */
+  align-items: center; /* Centers items vertically */
+  position: absolute; /* Positions element absolutely */
+}
+
+.popup-close img {
+  width: 25px; /* Sets width of close button icon */
+  height: 25px; /* Sets height of close button icon */
+  padding: 3px; /* Adds padding around the icon */
+  border-radius: 5px; /* Rounds the corners of the icon */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Adds box shadow */
+}
+
+.popup-close img:hover {
+  transform: scale(1.07); /* Scales up the icon on hover */
+}
+
+/* Icon button styles */
+.courseDetail-open-icon {
+  width: 20px; /* Sets width of open icon */
+  height: 20px; /* Sets height of open icon */
+  cursor: pointer; /* Changes cursor to pointer */
+}
+
+.courseDetail-open-icon:hover {
+  transform: scale(1.06); /* Scales up the open icon on hover */
+}

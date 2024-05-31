@@ -10,6 +10,9 @@ import Course from './../../Components/Course/Course'; // Course component impor
 import Mcq from './../../Components/Mcq/Mcq'; // Mcq component import
 import Ecommerce from '../../Components/Ecommerce/Ecommerce'; // Ecommerce component import
 import AddNote from '../../Components/Course/Note/AddNote/AddNote'; // AddNote component import
+import Manual from '../../Components/ManualManagement/CourseList/Manual';
+import AddManual from '../../Components/ManualManagement/AddManual/AddManual';
+import TeacherSubjectList from '../../Components/TeacherList/ManageSubjects/TeacherSubjectList';
 
 const Admin = () => { // Admin functional component
   return (
@@ -24,6 +27,11 @@ const Admin = () => { // Admin functional component
         <Route path='/studentList' element={<StudentList />} /> {/* StudentList route */}
         <Route path='/teacherList' element={<TeacherList />} /> {/* TeacherList route */}
         <Route path='/add-note/:courseId' element={<AddNote />} /> {/* AddNote route */}
+
+        <Route path='/teacher/manage-subject/:email' element={<TeacherSubjectList />} /> {/* AddNote route */}
+  
+        <Route path='/add-manual/:courseId' element={<AddManual />} /> {/* AddNote route */}
+        <Route path='/manual' element={<Manual />} /> {/* AddNote route */}
       </Routes>
     </div>
   );

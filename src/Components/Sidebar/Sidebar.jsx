@@ -65,6 +65,15 @@ const Sidebar = () => {
                 </button>
             </Link>
 
+
+            <Link to={'./manual'} style={{ textDecoration: "none" }}>
+                <button className="sidbar-item" style={currentPathName==='manual'?{color:"black",backgroundColor:'antiquewhite'}:{}}>
+                    <img src={users} alt="Students" />
+                    <p>Manual Notes</p>
+                </button>
+            </Link>
+
+
             {/* Logout button */}
             <Link to={'/'} style={{ textDecoration: "none" }}>
                 <div className="logout-button" >

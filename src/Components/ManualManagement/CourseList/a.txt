@@ -1,0 +1,201 @@
+import React from "react";
+import "./CourseList.css";
+import Popup from 'reactjs-popup/dist/reactjs-popup.esm';
+import Notelist from '../Note/NoteList';
+import remove_icon from './../../../assets/remove_icon.png';
+import open_icon from './../../../assets/svg-logo/open.svg';
+import { BookRepository } from "../../../Respsitory/bookRespsitory";
+
+
+const CourseList = () => {
+
+ const bookRepository = new BookRepository();
+
+ const [courses, setCourse] = React.useState([])
+
+ React.useEffect(()=>{
+  bookRepository.getAllSubject().then(data =>{
+    if(data?.data){
+      setCourse(data?.data)
+    }
+  })
+ },[])
+
+  const handleRemoveNote = (noteId) => {
+    // Implement logic to remove note from the list
+    // Update allnote state after removing the note
+    console.log("Removing note with ID:", noteId);
+  };
+
+  return (
+    <div className="courseDetail">
+      <div className="courseDetail-format-main">
+        <p>Stream</p>
+        <p>Class</p>
+        <p>Subject</p>
+        <p>Slug</p> 
+        <p>Price</p> 
+        <p>Notes</p> 
+     
+
+        {/* <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}} > 
+        <p>Remove</p>
+        </div> */}
+
+      </div>
+      <hr />
+      <div className="courseDetail-list">
+        {courses.map((course, index) => (
+          <div key={course.grade+course.stream+course.subject+course.price+index} className="courseDetail-format"  >
+            <p>{course.grade}</p>
+            <p>{course.stream}</p>
+            <p>{course.subject}</p>
+            <p>{course.slug}</p>
+            <p>{course.price}</p>
+            <Popup
+              trigger={<div className="popup-button" >  <img
+              src={open_icon}
+              // style={{marginLeft:'50px'}}
+              alt="Remove Icon"
+              className="courseDetail-remove-icon"
+              
+              onClick={() => handleRemoveNote(index)} // Pass index as noteId for simplicity
+            /></div>} 
+                modal nested >
+                {
+                    close => (
+                        <div className='popup' >
+                               <Notelist courseId={course.id} grade={course.grade} stream={course.stream} subject={course.subject} />
+                        </div>
+                    )
+                }
+            </Popup>
+            
+            {/* <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}} >
+               <img
+              src={remove_icon}
+              // style={{marginLeft:'50px'}}
+              alt="Remove Icon"
+              className="courseDetail-remove-icon"
+              onClick={() => handleRemoveNote(index)} // Pass index as noteId for simplicity
+            />
+           </div> */}
+            
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default CourseList;
+
+
+
+
+.courseDetail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: white;
+
+}
+
+.courseDetail hr {
+  height: 1px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.courseDetail-format-main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.courseDetail-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.courseDetail-format {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.courseDetail-format:hover {
+  background-color:#e8e8e8;
+
+}
+
+.courseDetail-format p {
+  margin: 0;
+  padding: 10px;
+}
+
+.courseDetail-icon {
+  width: 40px;
+  height: 40px;
+}
+.popup{
+  border-radius: 30px;
+}
+
+.popup-button button{
+  padding: 5px;
+    width: 100%;
+  max-width: 100px;
+  /* margin-top: 15px; */
+  height: 40px;
+  background-color: #afaa4c;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
+
+}
+.popup-button button:hover{
+  transform: scale(1.1);
+}
+.popup-button button:active{
+  transform: scale(0.9);
+}
+
+.courseDetail-remove-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.courseDetail-remove-icon:hover {
+  transform: scale(1.3);
+}
+.courseDetail-remove-icon:active {
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+/* CSS for the popup container */
+.popup {
+  background-color: rgb(255, 255, 255);
+  /* padding: 20px; */
+  border-radius: 8px;
+  text-align: center; /* Center the content horizontally */
+  width: 800px;
+}
