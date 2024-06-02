@@ -44,6 +44,23 @@ const MCQlist = () => {
     });
   };
 
+  const openFile = ( fileLocation) =>{
+      
+    mcqRespository.downloadBook(fileLocation).then(fileData =>{
+      if(fileData==null){
+        return; 
+      }
+      const href = URL.createObjectURL(fileData);
+      const link = document.createElement('a');
+      link.href = href;
+      link.setAttribute('download', fileLocation.substring(fileLocation.lastIndexOf("/")+1));
+      link.setAttribute('target','_blank');
+      document.body.appendChild(link);
+      link.click();
+      URL.revokeObjectURL(href);
+    })
+}
+
   return (
     <div className="mcqlist"> {/* Container for MCQ list */}
       <table>
@@ -64,16 +81,10 @@ const MCQlist = () => {
               <td>{note.description}</td> {/* Display MCQ description */}
               <td>
                 {/* Button to view MCQ */}
-                <button className="button-container">
-                  <a
-                    href={VITE_REACT_APP_BASE_URL + note.fileLocation}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{textDecoration:'none',color:'white'}}
-                    className="button-link" // Apply the button-link class to the <a> element
-                  >
+                <button className="button-container" onClick={()=>{openFile(note.fileLocation)}}>
+                  
                     Open 
-                  </a>
+                 
                 </button>
               </td>
               <td>

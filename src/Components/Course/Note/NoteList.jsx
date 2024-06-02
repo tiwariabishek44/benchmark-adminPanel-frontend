@@ -49,7 +49,7 @@ const Notelist = (props) => {
   };
 
   const openFile = (bookType, fileLocation) =>{
-      if(bookType === "PAID"){
+      
         bookRepository.downloadBook(fileLocation).then(fileData =>{
           if(fileData==null){
             return; 
@@ -63,15 +63,6 @@ const Notelist = (props) => {
           link.click();
           URL.revokeObjectURL(href);
         })
-       
-      } else{
-        const link = document.createElement('a');
-        link.href = VITE_REACT_APP_BASE_URL+fileLocation;
-        link.setAttribute('download', 'downloaded_file.ext');
-        link.setAttribute('target','_blank');
-        document.body.appendChild(link);
-        link.click();
-      }
   }
 
   return (

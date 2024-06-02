@@ -27,6 +27,7 @@ const Manual = () => {
   };
 
   return (
+    <div style={{width:"100%"}}>
     <table className="courseDetail"> {/* Render table for displaying course details */}
       <thead>
         <tr className="courseDetail-format-main"> {/* Table header row */}
@@ -69,6 +70,7 @@ const Manual = () => {
         ))}
       </tbody>
     </table>
+    </div>
   );
 };
 

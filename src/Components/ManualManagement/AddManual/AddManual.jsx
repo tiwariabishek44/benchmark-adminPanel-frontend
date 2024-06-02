@@ -44,7 +44,7 @@ export default function AddManual(){
 
     return (
         <div className="addnote">
-          <h1 className="title">Upload Note Books</h1>
+          <h1 className="title">Upload Manual Books</h1>
           <form onSubmit={handleSubmit}>
             <label className="form-label">
               Name:
