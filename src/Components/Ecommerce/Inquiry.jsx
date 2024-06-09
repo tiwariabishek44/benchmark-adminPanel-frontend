@@ -101,7 +101,7 @@ const Inquirysa = () => {
           <Modal open={isModalOpen} onCancel={()=>{setBookData({});setModelOpen(false)}}
           onOk={()=>{setBookData({});setModelOpen(false)}}>
            
-            <p><img style={{width:"250px", height:"250px"}} src={VITE_REACT_APP_BASE_URL+bookData.fileLocation} /></p>
+            <p><img style={{width:"250px", height:"250px"}} src={(VITE_REACT_APP_BASE_URL=="/"?"":VITE_REACT_APP_BASE_URL)+bookData.fileLocation} /></p>
             <p>Name: {bookData.name}</p>
             <p>Description: {bookData.description}</p>
             <p>Price: {bookData.price}</p>

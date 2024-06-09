@@ -15,7 +15,7 @@ const Notelist = (props) => {
   const grade = props.grade;
   const stream = props.stream;
   const subject = props.subject;
-  const bookRepository = new BookRepository()
+  const bookRepository = new BookRepository();
 
   
 

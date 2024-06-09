@@ -3,7 +3,7 @@ import './EcommerceList.css';  // Import CSS file
 import { BookRepository } from "../../Respsitory/bookRespsitory";  // Import BookRepository
 import { Popconfirm } from "antd";  // Import Popconfirm component
 
-const VITE_REACT_APP_BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
+let VITE_REACT_APP_BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
 
 const EcommerceList = () => {
   const bookRepository = new BookRepository();  // Initialize BookRepository
@@ -32,6 +32,8 @@ const EcommerceList = () => {
     });
   };
 
+
+
   return (
     <div className="ecommerce">
       {/* Render publication data in a table */}
@@ -51,7 +53,7 @@ const EcommerceList = () => {
             <tr key={publication.id} className="ecommerce-format">
               <td>
                 {/* Display publication image */}
-                <img src={VITE_REACT_APP_BASE_URL + publication.fileLocation} alt="Publication" className="ecommerce-icon" />
+                <img src={(VITE_REACT_APP_BASE_URL=="/"?"":VITE_REACT_APP_BASE_URL) + publication.fileLocation} alt="Publication" className="ecommerce-icon" />
               </td>
               <td>{publication.name}</td>
               <td>{publication.description}</td>

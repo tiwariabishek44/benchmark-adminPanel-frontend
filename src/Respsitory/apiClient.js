@@ -9,7 +9,7 @@ const baseURL = import.meta.env.VITE_REACT_APP_BASE_URL;
 // Create axios instance with base URL and timeout
 const apiClient = axios.create({
   baseURL,
-  timeout: 5000, // adjust as needed
+  timeout: 120000, // adjust as needed
 });
 
 // Middleware to set bearer token
@@ -70,8 +70,12 @@ const refreshToken = async () => {
   }
 
   try {
+    const apiClient1 = axios.create({
+      baseURL,
+      timeout: 120000, // adjust as needed
+    });
     // Send a request to refresh the token
-    const response = await axios.post(baseURL + "/api/open/common/account/access-token/refresh", {
+    const response = await apiClient1.post("/api/open/common/account/access-token/refresh", {
       refreshToken,
     });
     consoleLog(response.data.data.accessToken); // Log new access token
