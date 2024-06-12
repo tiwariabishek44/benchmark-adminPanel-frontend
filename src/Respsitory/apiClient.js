@@ -9,7 +9,7 @@ const baseURL = import.meta.env.VITE_REACT_APP_BASE_URL;
 // Create axios instance with base URL and timeout
 const apiClient = axios.create({
   baseURL,
-  timeout: 120000, // adjust as needed
+  timeout: 500000, // adjust as needed
 });
 
 // Middleware to set bearer token
